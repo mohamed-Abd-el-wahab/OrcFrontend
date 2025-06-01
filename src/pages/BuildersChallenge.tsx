@@ -1,5 +1,5 @@
 import React from 'react';
-import { Clock, Tool, Swords, Trophy, Users, Brain } from 'lucide-react';
+import { Clock, PenTool as Tool, Swords, Trophy, Users, Brain } from 'lucide-react';
 
 const BuildersChallenge = () => {
   const phases = [
