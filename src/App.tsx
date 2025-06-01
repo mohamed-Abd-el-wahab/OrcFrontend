@@ -21,6 +21,7 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
+import BuildersChallenge from './pages/BuildersChallenge';
 
 function App() {
   return (
@@ -47,6 +48,7 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:courseId" element={<CourseDetails />} />
+            <Route path="/builders-challenge" element={<BuildersChallenge />} />
           </Routes>
           <Footer />
         </div>
@@ -54,5 +56,3 @@ function App() {
     </CartProvider>
   );
 }
-
-export default App;
