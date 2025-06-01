@@ -1,14 +1,20 @@
 import React from 'react';
 import AboutHero from '../components/about/AboutHero';
 import Mission from '../components/about/Mission';
-import Education from '../components/about/Education';
+import Story from '../components/about/Story';
+import CoreValues from '../components/about/CoreValues';
+import Partners from '../components/about/Partners';
+import JoinMovement from '../components/about/JoinMovement';
 
 const About = () => {
   return (
     <div className="bg-black">
       <AboutHero />
       <Mission />
-      <Education />
+      <Story />
+      <CoreValues />
+      <Partners />
+      <JoinMovement />
     </div>
   );
 };
