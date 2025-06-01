@@ -8,7 +8,6 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
-  const [isCompetitionOpen, setIsCompetitionOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -16,11 +15,6 @@ const Navbar = () => {
     { name: "Robotics Consultation", path: "/services#consultation" },
     { name: "Simulation & Optimization", path: "/services#simulation" },
     { name: "Testing & Quality Assurance", path: "/services#testing" }
-  ];
-
-  const competitions = [
-    { name: "Main Competition", path: "/competition" },
-    { name: "Builders' Challenge", path: "/builders-challenge" }
   ];
 
   const handleServiceClick = (path: string) => {
@@ -66,37 +60,6 @@ const Navbar = () => {
               About
             </Link>
             
-            {/* Competition Dropdown */}
-            <div className="relative group">
-              <button
-                onClick={() => setIsCompetitionOpen(!isCompetitionOpen)}
-                onMouseEnter={() => setIsCompetitionOpen(true)}
-                onMouseLeave={() => setIsCompetitionOpen(false)}
-                className="flex items-center text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
-              >
-                Competition
-                <ChevronDown className="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
-              </button>
-              
-              <div
-                className={`absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-black/95 backdrop-blur-md rounded-lg shadow-xl border border-white/10 transform transition-all duration-200 ${
-                  isCompetitionOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-1'
-                }`}
-                onMouseEnter={() => setIsCompetitionOpen(true)}
-                onMouseLeave={() => setIsCompetitionOpen(false)}
-              >
-                {competitions.map((comp) => (
-                  <Link
-                    key={comp.path}
-                    to={comp.path}
-                    className="block px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm"
-                  >
-                    {comp.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             {/* Products Dropdown */}
             <div className="relative group">
               <button
@@ -139,6 +102,13 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
+
+            <Link 
+              to="/competition" 
+              className="text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
+            >
+              Competition
+            </Link>
 
             <Link 
               to="/courses" 
@@ -216,30 +186,6 @@ const Navbar = () => {
               About
             </Link>
             
-            {/* Mobile Competition Menu */}
-            <div className="space-y-1">
-              <button
-                onClick={() => setIsCompetitionOpen(!isCompetitionOpen)}
-                className="flex items-center justify-between w-full px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
-              >
-                Competition
-                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isCompetitionOpen ? 'rotate-180' : ''}`} />
-              </button>
-              {isCompetitionOpen && (
-                <div className="pl-4 space-y-1">
-                  {competitions.map((comp) => (
-                    <Link
-                      key={comp.path}
-                      to={comp.path}
-                      className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
-                    >
-                      {comp.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-
             {/* Mobile Products Menu */}
             <div className="space-y-1">
               <button
@@ -263,6 +209,13 @@ const Navbar = () => {
                 </div>
               )}
             </div>
+
+            <Link
+              to="/competition"
+              className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
+            >
+              Competition
+            </Link>
 
             <Link
               to="/courses"
