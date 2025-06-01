@@ -16,10 +16,11 @@ const AboutHero = () => {
         <div className="flex flex-col items-center text-center">
           <Rocket className="w-16 h-16 text-blue-500 mb-8 animate-bounce" />
           <h1 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
-            Building the Future of Robotics
+            Revolutionizing Robotics
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 max-w-3xl">
-            ORC is a cutting-edge robotics organization dedicated to making robotics accessible, competitive, and collaborative for everyone.
+            ORC is more than a competition—it's a movement to inspire the next generation of engineers
+            and innovators through the excitement of robot combat.
           </p>
         </div>
       </div>
