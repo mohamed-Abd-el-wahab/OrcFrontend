@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'framer-motion/dom';
+import { motion, useAnimation, useInView } from 'framer-motion';
 import { Play, ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
