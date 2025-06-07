@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, ChevronRight, Sparkles, Trophy, BookOpen } from 'lucide-react';
+import { Calendar, MapPin, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 // Import events data from the Events page
@@ -141,73 +141,25 @@ const EventsSection = () => {
     }
   };
 
-  const getTypeIcon = (item: any) => {
-    if (item.contentType === 'blog') {
-      return <BookOpen className="w-4 h-4" />;
-    } else {
-      return <Trophy className="w-4 h-4" />;
-    }
-  };
-
-  const getTypeColor = (item: any) => {
-    if (item.contentType === 'blog') {
-      return 'from-purple-500/20 to-pink-500/20';
-    } else {
-      switch (item.type) {
-        case 'competition': return 'from-yellow-500/20 to-orange-500/20';
-        case 'workshop': return 'from-green-500/20 to-emerald-500/20';
-        case 'expo': return 'from-blue-500/20 to-cyan-500/20';
-        default: return 'from-gray-500/20 to-gray-600/20';
-      }
-    }
-  };
-
   return (
-    <section className="py-32 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.1),transparent_50%)]"></div>
-        {[...Array(20)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-2 h-2 bg-blue-500 rounded-full animate-float"
-            style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.3
-            }}
-          />
-        ))}
-      </div>
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Enhanced Header */}
-        <div className="text-center mb-20">
-          <div className="inline-flex items-center justify-center space-x-2 mb-8">
-            <Sparkles className="w-6 h-6 text-blue-500 animate-pulse" />
-            <div className="h-px w-12 bg-gradient-to-r from-transparent via-blue-500 to-transparent"></div>
-            <span className="text-blue-400 text-sm font-medium px-4 py-1 bg-blue-500/10 rounded-full border border-blue-500/20">
-              Latest Updates
-            </span>
-            <div className="h-px w-12 bg-gradient-to-r from-blue-500 via-blue-500 to-transparent"></div>
-            <Sparkles className="w-6 h-6 text-blue-500 animate-pulse" />
-          </div>
-
-          <h2 className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-white via-blue-400 to-white bg-clip-text text-transparent">
+    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
             Upcoming Events & Latest Updates
           </h2>
           
-          {/* Enhanced Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-3">
+          {/* Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-2">
             {['all', 'competition', 'workshop', 'expo', 'webinar', 'blog'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter as any)}
-                className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 border ${
+                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-blue-600 text-white border-blue-500 shadow-lg shadow-blue-500/25'
-                    : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border-gray-700 hover:border-gray-600'
+                    ? 'bg-blue-600 text-white'
+                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
                 {getFilterLabel(filter)}
@@ -216,111 +168,86 @@ const EventsSection = () => {
           </div>
         </div>
 
-        {/* Enhanced Content Grid - Limited to 3 items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {sortedContent.slice(0, 3).map((item, index) => (
+        {/* Content Grid - Limited to 3 items */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sortedContent.slice(0, 3).map((item) => (
             <div
               key={`${item.contentType}-${item.id}`}
-              className="group relative"
+              className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group"
             >
-              {/* Animated background glow */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${getTypeColor(item)} rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700`}></div>
-              
-              {/* Card */}
-              <div className="relative bg-gray-800/50 backdrop-blur-sm rounded-2xl border border-gray-700 group-hover:border-gray-600 transition-all duration-500 overflow-hidden h-full flex flex-col">
-                {/* Header */}
-                <div className="p-6 pb-4">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center space-x-2">
-                      <div className={`w-8 h-8 rounded-lg bg-gradient-to-br ${getTypeColor(item)} flex items-center justify-center border border-white/10`}>
-                        {getTypeIcon(item)}
-                      </div>
-                      <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                        item.contentType === 'blog' 
-                          ? 'bg-purple-500/20 text-purple-400 border border-purple-500/30'
-                          : item.type === 'competition'
-                          ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/30'
-                          : item.type === 'workshop'
-                          ? 'bg-green-500/20 text-green-400 border border-green-500/30'
-                          : item.type === 'expo'
-                          ? 'bg-blue-500/20 text-blue-400 border border-blue-500/30'
-                          : 'bg-gray-500/20 text-gray-400 border border-gray-500/30'
-                      }`}>
-                        {item.contentType === 'blog' ? item.category : item.type?.charAt(0).toUpperCase() + item.type?.slice(1)}
-                      </span>
-                    </div>
-                    {item.featured && (
-                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full border border-blue-500/30">
-                        Featured
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors duration-300 line-clamp-2">
-                    {item.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3 group-hover:text-gray-200 transition-colors duration-300">
-                    {item.description}
-                  </p>
-                </div>
-
-                {/* Footer */}
-                <div className="p-6 pt-0 mt-auto">
-                  {/* Meta Information */}
-                  <div className="space-y-3 mb-6">
-                    <div className="flex items-center text-gray-400">
-                      <Calendar className="w-4 h-4 text-blue-500 mr-3" />
-                      <span>{new Date(item.date).toLocaleDateString()}</span>
-                    </div>
-                    {item.location && (
-                      <div className="flex items-center text-gray-400">
-                        <MapPin className="w-4 h-4 text-blue-500 mr-3" />
-                        <span>{item.location}</span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Action Button */}
-                  <Link
-                    to={getContentLink(item)}
-                    className="w-full inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-xl hover:from-blue-700 hover:to-purple-700 transition-all duration-300 font-semibold group/btn transform hover:-translate-y-0.5"
-                  >
-                    <span className="relative z-10">{getActionText(item)}</span>
-                    <ChevronRight className="ml-2 w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
-                  </Link>
-                </div>
+              {/* Content Type Badge */}
+              <div className="flex items-center justify-between mb-4">
+                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
+                  item.contentType === 'blog' 
+                    ? 'bg-purple-500/20 text-purple-400'
+                    : item.type === 'competition'
+                    ? 'bg-yellow-500/20 text-yellow-400'
+                    : item.type === 'workshop'
+                    ? 'bg-green-500/20 text-green-400'
+                    : item.type === 'expo'
+                    ? 'bg-blue-500/20 text-blue-400'
+                    : 'bg-gray-500/20 text-gray-400'
+                }`}>
+                  {item.contentType === 'blog' ? item.category : item.type?.charAt(0).toUpperCase() + item.type?.slice(1)}
+                </span>
+                {item.featured && (
+                  <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full">
+                    Featured
+                  </span>
+                )}
               </div>
+
+              {/* Title */}
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+                {item.title}
+              </h3>
+
+              {/* Description */}
+              <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3">
+                {item.description}
+              </p>
+
+              {/* Meta Information */}
+              <div className="space-y-3 mb-6">
+                <div className="flex items-center text-gray-400">
+                  <Calendar className="w-4 h-4 text-blue-500 mr-3" />
+                  <span>{new Date(item.date).toLocaleDateString()}</span>
+                </div>
+                {item.location && (
+                  <div className="flex items-center text-gray-400">
+                    <MapPin className="w-4 h-4 text-blue-500 mr-3" />
+                    <span>{item.location}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Action Button */}
+              <Link
+                to={getContentLink(item)}
+                className="w-full inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold group"
+              >
+                {getActionText(item)}
+                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           ))}
         </div>
 
-        {/* Enhanced View All Links */}
-        <div className="text-center flex flex-col sm:flex-row gap-6 justify-center">
+        {/* View All Links */}
+        <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/events"
-            className="group relative overflow-hidden inline-flex items-center px-10 py-5 bg-transparent border-2 border-blue-500 text-blue-400 rounded-xl hover:bg-blue-500/10 transition-all duration-500 text-lg font-semibold transform hover:-translate-y-1"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/10 transition-all duration-300 text-lg font-semibold group"
           >
-            <span className="relative z-10 flex items-center">
-              <Trophy className="w-5 h-5 mr-3" />
-              View All Events
-              <ChevronRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            View All Events
+            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          
           <Link
             to="/blog"
-            className="group relative overflow-hidden inline-flex items-center px-10 py-5 bg-transparent border-2 border-purple-500 text-purple-400 rounded-xl hover:bg-purple-500/10 transition-all duration-500 text-lg font-semibold transform hover:-translate-y-1"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-all duration-300 text-lg font-semibold group"
           >
-            <span className="relative z-10 flex items-center">
-              <BookOpen className="w-5 h-5 mr-3" />
-              Read Our Blog
-              <ChevronRight className="ml-3 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            Read Our Blog
+            <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
       </div>
