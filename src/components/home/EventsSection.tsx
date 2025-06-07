@@ -76,7 +76,7 @@ const EventsSection = () => {
                 onClick={() => setActiveFilter(filter as any)}
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-green-500 text-black'
+                    ? 'bg-blue-600 text-white'
                     : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
                 }`}
               >
@@ -91,21 +91,21 @@ const EventsSection = () => {
           {filteredEvents.map((event) => (
             <div
               key={event.id}
-              className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-green-500/50 transition-all duration-300 group"
+              className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group"
             >
               {/* Event Title */}
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-green-400 transition-colors">
+              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
                 {event.title}
               </h3>
 
               {/* Event Details */}
               <div className="space-y-3 mb-6">
                 <div className="flex items-center text-gray-300">
-                  <Calendar className="w-5 h-5 text-green-500 mr-3" />
+                  <Calendar className="w-5 h-5 text-blue-500 mr-3" />
                   <span>{event.date}</span>
                 </div>
                 <div className="flex items-center text-gray-300">
-                  <MapPin className="w-5 h-5 text-green-500 mr-3" />
+                  <MapPin className="w-5 h-5 text-blue-500 mr-3" />
                   <span>{event.location}</span>
                 </div>
               </div>
@@ -118,7 +118,7 @@ const EventsSection = () => {
               {/* Register Button */}
               <Link
                 to={event.registrationLink}
-                className="w-full inline-flex items-center justify-center px-6 py-3 bg-green-500 text-black rounded-lg hover:bg-green-400 transition-all duration-300 font-semibold group"
+                className="w-full inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold group"
               >
                 Register Now
                 <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -131,7 +131,7 @@ const EventsSection = () => {
         <div className="text-center mt-12">
           <Link
             to="/competition"
-            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-green-500 text-green-400 rounded-lg hover:bg-green-500/10 transition-all duration-300 text-lg font-semibold group"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/10 transition-all duration-300 text-lg font-semibold group"
           >
             View All Events
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
