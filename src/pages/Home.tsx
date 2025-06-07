@@ -5,6 +5,7 @@ import StatsSection from '../components/home/StatsSection';
 import MeetTheRover from '../components/home/MeetTheRover';
 import LearningSection from '../components/home/LearningSection';
 import EventsSection from '../components/home/EventsSection';
+import AboutORC from '../components/home/AboutORC';
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <MeetTheRover />
       <LearningSection />
       <EventsSection />
+      <AboutORC />
     </div>
   );
 };
