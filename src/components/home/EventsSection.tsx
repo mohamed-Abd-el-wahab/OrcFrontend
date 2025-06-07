@@ -168,9 +168,9 @@ const EventsSection = () => {
           </div>
         </div>
 
-        {/* Content Grid */}
+        {/* Content Grid - Limited to 3 items */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedContent.slice(0, 6).map((item) => (
+          {sortedContent.slice(0, 3).map((item) => (
             <div
               key={`${item.contentType}-${item.id}`}
               className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group"
