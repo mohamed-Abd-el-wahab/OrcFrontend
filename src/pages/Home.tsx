@@ -4,6 +4,7 @@ import ServicesSection from '../components/home/ServicesSection';
 import StatsSection from '../components/home/StatsSection';
 import MeetTheRover from '../components/home/MeetTheRover';
 import LearningSection from '../components/home/LearningSection';
+import EventsSection from '../components/home/EventsSection';
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <StatsSection />
       <MeetTheRover />
       <LearningSection />
+      <EventsSection />
     </div>
   );
 };
