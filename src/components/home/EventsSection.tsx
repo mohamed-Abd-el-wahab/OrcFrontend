@@ -16,51 +16,51 @@ const eventsData = [
   },
   {
     id: '2',
-    title: 'ORC Advanced Robotics Workshop',
+    title: 'Advanced Robotics Workshop',
     date: '2025-06-20',
     location: 'London, UK',
     type: 'workshop',
-    description: 'Hands-on workshop covering advanced robotics concepts, AI integration, and combat strategies for ORC competitors.',
+    description: 'Hands-on workshop covering advanced robotics concepts, AI integration, and combat strategies.',
     registrationLink: '/courses',
     featured: false
   },
   {
     id: '3',
-    title: 'ORC Robotics Tech Expo 2025',
+    title: 'Robotics Tech Expo 2025',
     date: '2025-07-10',
     location: 'Paris, France',
     type: 'expo',
-    description: 'Showcase of the latest robotics technology, innovations, and industry trends in combat robotics.',
+    description: 'Showcase of the latest robotics technology, innovations, and industry trends.',
     registrationLink: '/contact',
     featured: true
   },
   {
     id: '4',
-    title: 'ORC Beginner Robot Building Workshop',
+    title: 'Beginner Robot Building Workshop',
     date: '2025-05-15',
     location: 'Manchester, UK',
     type: 'workshop',
-    description: 'Perfect for newcomers to ORC. Learn the basics of combat robot construction and programming.',
+    description: 'Perfect for newcomers to robotics. Learn the basics of robot construction and programming.',
     registrationLink: '/courses',
     featured: false
   },
   {
     id: '5',
-    title: 'ORC Combat Robotics Webinar Series',
+    title: 'Combat Robotics Webinar Series',
     date: '2025-04-25',
     location: 'Online',
     type: 'webinar',
-    description: 'Monthly online sessions covering various aspects of ORC combat robotics design and strategy.',
+    description: 'Monthly online sessions covering various aspects of combat robotics design and strategy.',
     registrationLink: '/contact',
     featured: false
   },
   {
     id: '6',
-    title: 'ORC Regional Qualifier - Northern Europe',
+    title: 'Regional Qualifier - Northern Europe',
     date: '2025-06-05',
     location: 'Stockholm, Sweden',
     type: 'competition',
-    description: 'Regional qualifying event for ORC teams from Northern European countries.',
+    description: 'Regional qualifying event for teams from Northern European countries.',
     registrationLink: '/register',
     featured: false
   }
@@ -70,18 +70,18 @@ const eventsData = [
 const blogPostsData = [
   {
     id: '1',
-    title: 'The Future of ORC Combat Robotics: Trends and Innovations',
+    title: 'The Future of Combat Robotics: Trends and Innovations',
     date: '2024-12-15',
     category: 'Technology',
-    description: 'Explore the cutting-edge technologies shaping the next generation of ORC combat robots, from AI-driven strategies to advanced materials.',
+    description: 'Explore the cutting-edge technologies shaping the next generation of combat robots, from AI-driven strategies to advanced materials.',
     featured: true
   },
   {
     id: '2',
-    title: 'Building Your First ORC Combat Robot: A Complete Guide',
+    title: 'Building Your First Combat Robot: A Complete Guide',
     date: '2024-12-10',
     category: 'Tutorial',
-    description: 'Step-by-step guide for beginners entering the world of ORC robot combat, covering design principles, materials, and safety considerations.',
+    description: 'Step-by-step guide for beginners entering the world of robot combat, covering design principles, materials, and safety considerations.',
     featured: false
   },
   {
@@ -89,7 +89,7 @@ const blogPostsData = [
     title: 'ORC Championship 2024: Highlights and Winner Analysis',
     date: '2024-12-05',
     category: 'Competition',
-    description: 'Recap of the most exciting moments from this year\'s ORC championship and detailed analysis of winning strategies.',
+    description: 'Recap of the most exciting moments from this year\'s championship and detailed analysis of winning strategies.',
     featured: true
   }
 ];
@@ -116,11 +116,11 @@ const EventsSection = () => {
   const getFilterLabel = (filter: string) => {
     switch (filter) {
       case 'all': return 'All Content';
-      case 'competition': return 'ORC Competitions';
-      case 'workshop': return 'ORC Workshops';
-      case 'expo': return 'ORC Expos';
-      case 'webinar': return 'ORC Webinars';
-      case 'blog': return 'ORC Blog Posts';
+      case 'competition': return 'Competitions';
+      case 'workshop': return 'Workshops';
+      case 'expo': return 'Expos';
+      case 'webinar': return 'Webinars';
+      case 'blog': return 'Blog Posts';
       default: return filter;
     }
   };
@@ -146,12 +146,9 @@ const EventsSection = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            ORC Events & Latest Updates
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
+            Upcoming Events & Latest Updates
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Stay updated with the latest Open Robot Combat events, competitions, and insights from the world of combat robotics
-          </p>
           
           {/* Filter Tabs */}
           <div className="flex flex-wrap justify-center gap-2">
@@ -242,14 +239,14 @@ const EventsSection = () => {
             to="/events"
             className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/10 transition-all duration-300 text-lg font-semibold group"
           >
-            View All ORC Events
+            View All Events
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
             to="/blog"
             className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-all duration-300 text-lg font-semibold group"
           >
-            Read ORC Blog
+            Read Our Blog
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
