@@ -20,8 +20,7 @@ const Navbar = () => {
 
   const resources = [
     { name: "Blog", path: "/blog" },
-    { name: "Events", path: "/events" },
-    { name: "Learning", path: "/courses" }
+    { name: "Events", path: "/events" }
   ];
 
   const handleServiceClick = (path: string) => {
@@ -115,6 +114,14 @@ const Navbar = () => {
               className="text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
             >
               Competition
+            </Link>
+
+            {/* Courses - Standalone */}
+            <Link 
+              to="/courses" 
+              className="text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
+            >
+              Courses
             </Link>
 
             {/* Resources Dropdown */}
@@ -246,6 +253,14 @@ const Navbar = () => {
               className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
             >
               Competition
+            </Link>
+
+            {/* Mobile Courses - Standalone */}
+            <Link
+              to="/courses"
+              className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
+            >
+              Courses
             </Link>
 
             {/* Mobile Resources Menu */}
