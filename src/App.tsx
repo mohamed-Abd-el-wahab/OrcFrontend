@@ -25,6 +25,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
+import BuilderChallenge from './pages/BuilderChallenge';
 
 function App() {
   return (
@@ -36,6 +37,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/competition" element={<Competition />} />
+            <Route path="/builder-challenge" element={<BuilderChallenge />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/sponsorship" element={<Sponsorship />} />
