@@ -21,6 +21,10 @@ import Login from './pages/auth/Login';
 import Signup from './pages/auth/Signup';
 import Courses from './pages/Courses';
 import CourseDetails from './pages/CourseDetails';
+import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
+import Events from './pages/Events';
+import EventDetails from './pages/EventDetails';
 
 function App() {
   return (
@@ -47,6 +51,10 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/courses/:courseId" element={<CourseDetails />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:postId" element={<BlogPost />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:eventId" element={<EventDetails />} />
           </Routes>
           <Footer />
         </div>

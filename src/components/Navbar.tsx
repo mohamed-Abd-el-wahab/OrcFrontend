@@ -8,6 +8,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isProductsOpen, setIsProductsOpen] = useState(false);
+  const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -15,6 +16,12 @@ const Navbar = () => {
     { name: "Robotics Consultation", path: "/services#consultation" },
     { name: "Simulation & Optimization", path: "/services#simulation" },
     { name: "Testing & Quality Assurance", path: "/services#testing" }
+  ];
+
+  const resources = [
+    { name: "Blog", path: "/blog" },
+    { name: "Events", path: "/events" },
+    { name: "Learning", path: "/courses" }
   ];
 
   const handleServiceClick = (path: string) => {
@@ -110,12 +117,36 @@ const Navbar = () => {
               Competition
             </Link>
 
-            <Link 
-              to="/courses" 
-              className="text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
-            >
-              Learning
-            </Link>
+            {/* Resources Dropdown */}
+            <div className="relative group">
+              <button
+                onMouseEnter={() => setIsResourcesOpen(true)}
+                onMouseLeave={() => setIsResourcesOpen(false)}
+                className="flex items-center text-gray-400 hover:text-white transition-all duration-200 text-sm tracking-wider font-medium"
+              >
+                Resources
+                <ChevronDown className="ml-1 w-3 h-3 transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+              
+              {/* Resources Dropdown menu */}
+              <div
+                className={`absolute left-1/2 -translate-x-1/2 mt-4 w-56 bg-black/95 backdrop-blur-md rounded-lg shadow-xl border border-white/10 transform transition-all duration-200 ${
+                  isResourcesOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible translate-y-1'
+                }`}
+                onMouseEnter={() => setIsResourcesOpen(true)}
+                onMouseLeave={() => setIsResourcesOpen(false)}
+              >
+                {resources.map((resource) => (
+                  <Link
+                    key={resource.path}
+                    to={resource.path}
+                    className="block px-4 py-2 text-gray-400 hover:bg-white/5 hover:text-white transition-all duration-200 text-sm"
+                  >
+                    {resource.name}
+                  </Link>
+                ))}
+              </div>
+            </div>
             
             {/* Services Dropdown */}
             <div className="relative group">
@@ -217,12 +248,29 @@ const Navbar = () => {
               Competition
             </Link>
 
-            <Link
-              to="/courses"
-              className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
-            >
-              Learning
-            </Link>
+            {/* Mobile Resources Menu */}
+            <div className="space-y-1">
+              <button
+                onClick={() => setIsResourcesOpen(!isResourcesOpen)}
+                className="flex items-center justify-between w-full px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
+              >
+                Resources
+                <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${isResourcesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              {isResourcesOpen && (
+                <div className="pl-4 space-y-1">
+                  {resources.map((resource) => (
+                    <Link
+                      key={resource.path}
+                      to={resource.path}
+                      className="block px-3 py-2 text-gray-400 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 text-sm"
+                    >
+                      {resource.name}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             
             {/* Mobile Services Menu */}
             <div className="space-y-1">
