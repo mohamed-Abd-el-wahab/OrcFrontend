@@ -108,7 +108,7 @@ const EventsSection = () => {
     ? allContent.filter(item => item.featured || item.contentType === 'event')
     : activeFilter === 'blog'
     ? allContent.filter(item => item.contentType === 'blog')
-    : allContent.filter(item => item.contentType === 'event' && item.type === activeFilter);
+    : allContent.filter(item => item.contentType === 'event' && (item as any).type === activeFilter);
 
   // Sort by date (newest first)
   const sortedContent = filteredContent.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
@@ -142,24 +142,41 @@ const EventsSection = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-black to-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-32 bg-gradient-to-b from-deep-charcoal to-dark-navy relative">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-3">
+        <div className="w-full h-full" style={{
+          backgroundImage: `linear-gradient(rgba(79, 125, 243, 0.08) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(79, 125, 243, 0.08) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
-            Upcoming Events & Latest Updates
+        <div className="text-center mb-20 animate-fade-in">
+          <div className="flex items-center justify-center space-x-4 mb-8">
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-bright-cyan"></div>
+            <div className="w-4 h-4 bg-bright-cyan rounded-full animate-pulse"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-bright-cyan"></div>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-black text-primary-text mb-6 tracking-tight">
+            EVENTS & UPDATES
           </h2>
+          <p className="text-xl text-secondary-text max-w-2xl mx-auto font-light leading-relaxed mb-12">
+            Stay connected with the latest competitions, workshops, and community insights
+          </p>
           
           {/* Filter Tabs */}
-          <div className="flex flex-wrap justify-center gap-2">
+          <div className="flex flex-wrap justify-center gap-3">
             {['all', 'competition', 'workshop', 'expo', 'webinar', 'blog'].map((filter) => (
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter as any)}
-                className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
+                className={`px-8 py-4 rounded-xl font-medium transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    ? 'gradient-accent text-primary-text shadow-lg animate-pulse-glow'
+                    : 'glass-effect text-secondary-text hover:text-primary-text border border-bright-cyan/20 hover:border-bright-cyan/40'
                 }`}
               >
                 {getFilterLabel(filter)}
@@ -169,12 +186,19 @@ const EventsSection = () => {
         </div>
 
         {/* Content Grid - Limited to 3 items */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedContent.slice(0, 3).map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+          {sortedContent.slice(0, 3).map((item, index) => (
             <div
               key={`${item.contentType}-${item.id}`}
-              className="bg-gray-800/50 rounded-xl p-6 border border-gray-700 hover:border-blue-500/50 transition-all duration-300 group"
+              className="group relative animate-fade-in"
+              style={{ animationDelay: `${index * 0.2}s` }}
             >
+              {/* Glow Effect */}
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-bright-cyan to-electric-blue rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+              
+              {/* Card */}
+              <div className="relative glass-effect rounded-2xl p-8 border border-bright-cyan/20 hover:border-bright-cyan/40 transition-all duration-500 hover:transform hover:scale-105"
+              >
               {/* Content Type Badge */}
               <div className="flex items-center justify-between mb-4">
                 <span className={`px-3 py-1 rounded-full text-sm font-medium ${
@@ -188,7 +212,7 @@ const EventsSection = () => {
                     ? 'bg-blue-500/20 text-blue-400'
                     : 'bg-gray-500/20 text-gray-400'
                 }`}>
-                  {item.contentType === 'blog' ? item.category : item.type?.charAt(0).toUpperCase() + item.type?.slice(1)}
+                  {item.contentType === 'blog' ? (item as any).category : (item as any).type?.charAt(0).toUpperCase() + (item as any).type?.slice(1)}
                 </span>
                 {item.featured && (
                   <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full">
@@ -213,7 +237,7 @@ const EventsSection = () => {
                   <Calendar className="w-4 h-4 text-blue-500 mr-3" />
                   <span>{new Date(item.date).toLocaleDateString()}</span>
                 </div>
-                {item.location && (
+                {item.contentType === 'event' && 'location' in item && item.location && (
                   <div className="flex items-center text-gray-400">
                     <MapPin className="w-4 h-4 text-blue-500 mr-3" />
                     <span>{item.location}</span>
@@ -229,6 +253,7 @@ const EventsSection = () => {
                 {getActionText(item)}
                 <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Link>
+              </div>
             </div>
           ))}
         </div>

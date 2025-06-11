@@ -5,7 +5,7 @@ import HeroBackground from './hero/HeroBackground';
 
 const Hero = () => {
   return (
-    <div className="relative min-h-screen bg-black overflow-hidden">
+    <div className="relative min-h-screen gradient-primary overflow-hidden">
       <HeroBackground />
       <div className="relative z-10">
         <HeroContent />

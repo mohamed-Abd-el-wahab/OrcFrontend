@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -47,4 +48,25 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+/* Futuristic gradient backgrounds */
+.gradient-primary {
+  background: linear-gradient(135deg, #0A0A0F 0%, #111115 100%);
+}
+
+.gradient-accent {
+  background: linear-gradient(135deg, #4F7DF3 0%, #5B8DEF 100%);
+}
+
+/* Glass morphism effect */
+.glass-effect {
+  background: rgba(10, 10, 15, 0.3);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }

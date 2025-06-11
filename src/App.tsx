@@ -31,7 +31,7 @@ function App() {
   return (
     <CartProvider>
       <Router>
-        <div className="min-h-screen bg-black text-gray-300">
+        <div className="min-h-screen gradient-primary text-primary-text">
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />

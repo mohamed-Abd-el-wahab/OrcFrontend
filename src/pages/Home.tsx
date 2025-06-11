@@ -8,7 +8,7 @@ import EventsSection from '../components/home/EventsSection';
 
 const Home = () => {
   return (
-    <div className="bg-black">
+    <div className="gradient-primary">
       <Hero />
       <ServicesSection />
       <StatsSection />
