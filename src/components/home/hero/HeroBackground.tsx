@@ -14,17 +14,20 @@ const HeroBackground = () => {
 
   return (
     <div className="absolute inset-0">
-      {/* Primary gradient background */}
-      <div className="absolute inset-0 gradient-primary" />
-      
-      {/* Geometric pattern overlay */}
-      <div className="absolute inset-0 opacity-15">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-bright-cyan/20 rounded-full animate-spin-slow"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-electric-blue/25 rounded-full animate-pulse"></div>
-        <div className="absolute top-3/4 left-1/2 w-32 h-32 border border-bright-cyan/15 rounded-full animate-float-gentle"></div>
+      {/* Primary blue gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
+        {/* Subtle geometric patterns */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-blue-400/20 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-blue-300/15 rounded-full animate-pulse delay-1000"></div>
+          <div className="absolute top-3/4 left-1/2 w-32 h-32 border border-blue-500/25 rounded-full animate-pulse delay-500"></div>
+        </div>
+        
+        {/* Radial gradient overlay for depth */}
+        <div className="absolute inset-0 bg-radial-gradient from-blue-600/20 via-transparent to-transparent"></div>
       </div>
       
-      {/* Video Background - reduced opacity for more subtle effect */}
+      {/* Video Background - very subtle */}
       {!isVideoError && (
         <div className="absolute inset-0 w-full h-full overflow-hidden">
           <video
@@ -35,7 +38,7 @@ const HeroBackground = () => {
             onLoadedData={() => setIsVideoLoaded(true)}
             onError={() => setIsVideoError(true)}
             className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
-              isVideoLoaded ? 'opacity-10' : 'opacity-0'
+              isVideoLoaded ? 'opacity-5' : 'opacity-0'
             }`}
           >
             <source 
@@ -47,16 +50,7 @@ const HeroBackground = () => {
       )}
 
       {/* Futuristic overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark-navy/95 via-transparent to-dark-navy/95" />
-      
-      {/* Subtle grid pattern */}
-      <div className="absolute inset-0 opacity-3">
-        <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(rgba(79, 125, 243, 0.08) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(79, 125, 243, 0.08) 1px, transparent 1px)`,
-          backgroundSize: '50px 50px'
-        }}></div>
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
     </div>
   );
 };

@@ -142,12 +142,12 @@ const EventsSection = () => {
   };
 
   return (
-    <section className="py-32 bg-gradient-to-b from-deep-charcoal to-dark-navy relative">
+    <section className="py-32 bg-gradient-to-b from-gray-900 to-black relative">
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-3">
+      <div className="absolute inset-0 opacity-5">
         <div className="w-full h-full" style={{
-          backgroundImage: `linear-gradient(rgba(79, 125, 243, 0.08) 1px, transparent 1px),
-                           linear-gradient(90deg, rgba(79, 125, 243, 0.08) 1px, transparent 1px)`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 242, 0.08) 1px, transparent 1px),
+                           linear-gradient(90deg, rgba(0, 0, 242, 0.08) 1px, transparent 1px)`,
           backgroundSize: '60px 60px'
         }}></div>
       </div>
@@ -156,14 +156,14 @@ const EventsSection = () => {
         {/* Header */}
         <div className="text-center mb-20 animate-fade-in">
           <div className="flex items-center justify-center space-x-4 mb-8">
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-bright-cyan"></div>
-            <div className="w-4 h-4 bg-bright-cyan rounded-full animate-pulse"></div>
-            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-bright-cyan"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-[#0000F2]"></div>
+            <div className="w-4 h-4 bg-[#0000F2] rounded-full animate-pulse"></div>
+            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-[#0000F2]"></div>
           </div>
-          <h2 className="text-4xl md:text-6xl font-black text-primary-text mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-6xl font-['Montserrat',sans-serif] font-black text-white mb-6 tracking-tight">
             EVENTS & UPDATES
           </h2>
-          <p className="text-xl text-secondary-text max-w-2xl mx-auto font-light leading-relaxed mb-12">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-['Aileron',sans-serif] font-light leading-relaxed mb-12">
             Stay connected with the latest competitions, workshops, and community insights
           </p>
           
@@ -173,10 +173,10 @@ const EventsSection = () => {
               <button
                 key={filter}
                 onClick={() => setActiveFilter(filter as any)}
-                className={`px-8 py-4 rounded-xl font-medium transition-all duration-300 ${
+                className={`px-8 py-4 rounded-xl font-['Montserrat',sans-serif] font-medium transition-all duration-300 ${
                   activeFilter === filter
-                    ? 'gradient-accent text-primary-text shadow-lg animate-pulse-glow'
-                    : 'glass-effect text-secondary-text hover:text-primary-text border border-bright-cyan/20 hover:border-bright-cyan/40'
+                    ? 'bg-[#0000F2] text-white shadow-lg'
+                    : 'bg-gray-900/50 backdrop-blur-sm text-gray-300 hover:text-white border border-gray-700 hover:border-[#0000F2]/40'
                 }`}
               >
                 {getFilterLabel(filter)}
@@ -194,65 +194,64 @@ const EventsSection = () => {
               style={{ animationDelay: `${index * 0.2}s` }}
             >
               {/* Glow Effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-bright-cyan to-electric-blue rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#0000F2] to-blue-400 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
               
               {/* Card */}
-              <div className="relative glass-effect rounded-2xl p-8 border border-bright-cyan/20 hover:border-bright-cyan/40 transition-all duration-500 hover:transform hover:scale-105"
-              >
-              {/* Content Type Badge */}
-              <div className="flex items-center justify-between mb-4">
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  item.contentType === 'blog' 
-                    ? 'bg-purple-500/20 text-purple-400'
-                    : item.type === 'competition'
-                    ? 'bg-yellow-500/20 text-yellow-400'
-                    : item.type === 'workshop'
-                    ? 'bg-green-500/20 text-green-400'
-                    : item.type === 'expo'
-                    ? 'bg-blue-500/20 text-blue-400'
-                    : 'bg-gray-500/20 text-gray-400'
-                }`}>
-                  {item.contentType === 'blog' ? (item as any).category : (item as any).type?.charAt(0).toUpperCase() + (item as any).type?.slice(1)}
-                </span>
-                {item.featured && (
-                  <span className="px-2 py-1 bg-blue-500/20 text-blue-400 text-xs font-medium rounded-full">
-                    Featured
+              <div className="relative bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-[#0000F2]/40 transition-all duration-500 hover:transform hover:scale-105">
+                {/* Content Type Badge */}
+                <div className="flex items-center justify-between mb-4">
+                  <span className={`px-3 py-1 rounded-full text-sm font-['Montserrat',sans-serif] font-medium ${
+                    item.contentType === 'blog' 
+                      ? 'bg-purple-500/20 text-purple-400'
+                      : item.type === 'competition'
+                      ? 'bg-yellow-500/20 text-yellow-400'
+                      : item.type === 'workshop'
+                      ? 'bg-green-500/20 text-green-400'
+                      : item.type === 'expo'
+                      ? 'bg-blue-500/20 text-blue-400'
+                      : 'bg-gray-500/20 text-gray-400'
+                  }`}>
+                    {item.contentType === 'blog' ? (item as any).category : (item as any).type?.charAt(0).toUpperCase() + (item as any).type?.slice(1)}
                   </span>
-                )}
-              </div>
-
-              {/* Title */}
-              <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
-                {item.title}
-              </h3>
-
-              {/* Description */}
-              <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3">
-                {item.description}
-              </p>
-
-              {/* Meta Information */}
-              <div className="space-y-3 mb-6">
-                <div className="flex items-center text-gray-400">
-                  <Calendar className="w-4 h-4 text-blue-500 mr-3" />
-                  <span>{new Date(item.date).toLocaleDateString()}</span>
+                  {item.featured && (
+                    <span className="px-2 py-1 bg-[#0000F2]/20 text-[#0000F2] text-xs font-['Montserrat',sans-serif] font-medium rounded-full">
+                      Featured
+                    </span>
+                  )}
                 </div>
-                {item.contentType === 'event' && 'location' in item && item.location && (
-                  <div className="flex items-center text-gray-400">
-                    <MapPin className="w-4 h-4 text-blue-500 mr-3" />
-                    <span>{item.location}</span>
-                  </div>
-                )}
-              </div>
 
-              {/* Action Button */}
-              <Link
-                to={getContentLink(item)}
-                className="w-full inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-semibold group"
-              >
-                {getActionText(item)}
-                <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Link>
+                {/* Title */}
+                <h3 className="text-xl font-['Montserrat',sans-serif] font-bold text-white mb-4 group-hover:text-[#0000F2] transition-colors">
+                  {item.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-300 mb-6 leading-relaxed line-clamp-3 font-['Aileron',sans-serif] font-light">
+                  {item.description}
+                </p>
+
+                {/* Meta Information */}
+                <div className="space-y-3 mb-6">
+                  <div className="flex items-center text-gray-400">
+                    <Calendar className="w-4 h-4 text-[#0000F2] mr-3" />
+                    <span className="font-['Aileron',sans-serif]">{new Date(item.date).toLocaleDateString()}</span>
+                  </div>
+                  {item.contentType === 'event' && 'location' in item && item.location && (
+                    <div className="flex items-center text-gray-400">
+                      <MapPin className="w-4 h-4 text-[#0000F2] mr-3" />
+                      <span className="font-['Aileron',sans-serif]">{item.location}</span>
+                    </div>
+                  )}
+                </div>
+
+                {/* Action Button */}
+                <Link
+                  to={getContentLink(item)}
+                  className="w-full inline-flex items-center justify-center px-6 py-3 bg-[#0000F2] text-white rounded-lg hover:bg-blue-700 transition-all duration-300 font-['Montserrat',sans-serif] font-semibold group"
+                >
+                  {getActionText(item)}
+                  <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
           ))}
@@ -262,14 +261,14 @@ const EventsSection = () => {
         <div className="text-center mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             to="/events"
-            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-blue-500 text-blue-400 rounded-lg hover:bg-blue-500/10 transition-all duration-300 text-lg font-semibold group"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-[#0000F2] text-[#0000F2] rounded-lg hover:bg-[#0000F2]/10 transition-all duration-300 text-lg font-['Montserrat',sans-serif] font-semibold group"
           >
             View All Events
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
           <Link
             to="/blog"
-            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-all duration-300 text-lg font-semibold group"
+            className="inline-flex items-center px-8 py-4 bg-transparent border-2 border-purple-500 text-purple-400 rounded-lg hover:bg-purple-500/10 transition-all duration-300 text-lg font-['Montserrat',sans-serif] font-semibold group"
           >
             Read Our Blog
             <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
