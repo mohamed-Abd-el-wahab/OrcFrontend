@@ -127,6 +127,14 @@ const Navbar = () => {
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-bright-cyan group-hover:w-full transition-all duration-300"></div>
             </Link>
 
+            <Link 
+              to="/community" 
+              className="text-secondary-text hover:text-bright-cyan transition-all duration-300 text-sm tracking-wider font-medium relative group"
+            >
+              Community
+              <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-bright-cyan group-hover:w-full transition-all duration-300"></div>
+            </Link>
+
             {/* Courses - Standalone */}
             <Link 
               to="/courses" 
@@ -282,6 +290,13 @@ const Navbar = () => {
               className="block px-4 py-3 text-secondary-text hover:text-bright-cyan hover:bg-bright-cyan/5 rounded-xl transition-all duration-300 text-sm font-medium"
             >
               Builder Challenge
+            </Link>
+
+            <Link
+              to="/community"
+              className="block px-4 py-3 text-secondary-text hover:text-bright-cyan hover:bg-bright-cyan/5 rounded-xl transition-all duration-300 text-sm font-medium"
+            >
+              Community
             </Link>
 
             {/* Mobile Courses - Standalone */}
