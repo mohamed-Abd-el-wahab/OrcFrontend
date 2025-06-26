@@ -239,28 +239,70 @@ const Community = () => {
 
       {/* A. Hero Banner */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0">
-          <img
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&q=80&w=2070"
-            alt="Students working on robotics projects"
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-[#0000F2] opacity-60"></div>
+        {/* Background with blue gradient */}
+        <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
+          {/* Subtle geometric patterns */}
+          <div className="absolute inset-0 opacity-10">
+            <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-blue-400/20 rounded-full animate-pulse"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-blue-300/15 rounded-full animate-pulse delay-1000"></div>
+            <div className="absolute top-3/4 left-1/2 w-32 h-32 border border-blue-500/25 rounded-full animate-pulse delay-500"></div>
+          </div>
+          
+          {/* Radial gradient overlay for depth */}
+          <div className="absolute inset-0 bg-radial-gradient from-blue-600/20 via-transparent to-transparent"></div>
         </div>
         
-        <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 className="text-5xl md:text-7xl font-['Montserrat',sans-serif] font-bold mb-6 leading-tight">
+        <div className="relative z-10 text-center max-w-6xl mx-auto px-4">
+          {/* ORC Logo */}
+          <div className="mb-12">
+            <div className="inline-flex items-center space-x-6">
+              {/* Large ORC Text Logo */}
+              <div className="text-8xl md:text-9xl font-['Montserrat',sans-serif] font-black text-white tracking-tight">
+                ORC
+              </div>
+              
+              {/* Tagline */}
+              <div className="text-left">
+                <div className="text-3xl md:text-4xl font-['Montserrat',sans-serif] font-light text-white">
+                  A Place
+                </div>
+                <div className="text-3xl md:text-4xl font-['Montserrat',sans-serif] font-light text-white">
+                  for Builders
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Main Heading */}
+          <h1 className="text-4xl md:text-6xl font-['Montserrat',sans-serif] font-bold mb-6 leading-tight">
             Build the Future—Together.
           </h1>
-          <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-2xl mx-auto">
-            Join Egypt's fastest-growing robotics community and level-up your skills.
+          
+          {/* Subtitle */}
+          <p className="text-xl md:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto font-light">
+            Join Egypt's fastest-growing robotics community and level-up your skills with hands-on projects, expert mentorship, and cutting-edge technology.
           </p>
+          
+          {/* CTA Button */}
           <button 
             onClick={handleJoinNow}
-            className="bg-white text-[#0000F2] px-12 py-4 rounded-lg text-xl font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+            className="bg-[#0000F2] text-white px-12 py-4 rounded-xl text-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 shadow-2xl glow-effect"
           >
-            Apply Now
+            Join the trusted tester waitlist
+            <ChevronRight className="inline-block ml-2 w-6 h-6" />
           </button>
+          
+          {/* Additional Info */}
+          <div className="mt-8 text-gray-300 text-sm">
+            <p>5,000 EGP / 3 months • Ages 16+ • English Required</p>
+          </div>
+        </div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+            <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
+          </div>
         </div>
       </section>
 

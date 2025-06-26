@@ -74,6 +74,11 @@
   box-shadow: 0 0 30px rgba(0, 0, 242, 0.5);
 }
 
+/* Radial gradient utility */
+.bg-radial-gradient {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
+
 /* Futuristic gradient backgrounds */
 .gradient-primary {
   background: linear-gradient(135deg, #0A0A0F 0%, #111115 100%);
