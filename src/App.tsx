@@ -31,12 +31,7 @@ import Community from './pages/Community';
 function App() {
   return (
     <CartProvider>
-      <Router
-        future={{
-          v7_startTransition: true,
-          v7_relativeSplatPath: true
-        }}
-      >
+      <Router>
         <div className="min-h-screen gradient-primary text-primary-text">
           <Navbar />
           <Routes>
