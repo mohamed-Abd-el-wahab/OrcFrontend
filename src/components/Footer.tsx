@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Facebook, Instagram, Youtube, Mail, Phone, MapPin, ArrowRight, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const quickLinks = [
     { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
-    { name: 'Competition', path: '/competition' },
-    { name: 'Courses', path: '/courses' },
     { name: 'Products', path: '/products' },
+    { name: 'Builder Challenge', path: '/builder-challenge' },
+    { name: 'Community', path: '/community' },
     { name: 'Services', path: '/services' }
   ];
 
@@ -20,16 +20,25 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gradient-to-t from-dark-navy to-deep-charcoal border-t border-bright-cyan/10">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-3">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(79, 125, 243, 0.08) 1px, transparent 0)`,
-          backgroundSize: '60px 60px'
-        }}></div>
+    <footer className="relative bg-orc-black overflow-hidden border-t border-orc-blue/20">
+      {/* Left Blue Spine */}
+      <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
+      
+      {/* Background Pattern - Diagonal Arrows */}
+      <div className="absolute inset-0 opacity-[0.05]">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="footer-diagonal-arrows" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M5,5 L15,15 M15,5 L5,15" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+              <path d="M10,0 L20,10 M20,0 L10,10" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+              <path d="M0,10 L10,20 M10,10 L0,20" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#footer-diagonal-arrows)"/>
+        </svg>
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           
@@ -43,18 +52,18 @@ const Footer = () => {
               />
             </Link>
             <div>
-              <p className="text-xl font-semibold text-primary-text mb-2">
+              <p className="text-xl font-montserrat font-semibold text-orc-white mb-2">
                 A Place for Builders
               </p>
-              <p className="text-secondary-text font-light leading-relaxed">
+              <p className="text-gray-300 font-aileron font-light leading-relaxed">
                 Empowering the next generation of robotic innovators through cutting-edge competitions and collaborative learning.
               </p>
             </div>
             
             {/* Social Links */}
             <div>
-              <h4 className="text-primary-text font-semibold mb-4 flex items-center">
-                <div className="w-1 h-6 bg-gradient-to-b from-bright-cyan to-electric-blue mr-3 rounded-full"></div>
+              <h4 className="text-orc-white font-montserrat font-semibold mb-4 flex items-center">
+                <div className="w-1 h-6 bg-orc-blue mr-3 rounded-full"></div>
                 Follow Us
               </h4>
               <div className="flex space-x-4">
@@ -62,7 +71,7 @@ const Footer = () => {
                   href="https://www.facebook.com/share/18kuQMcVnw/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-3 glass-effect rounded-xl border border-bright-cyan/20 text-secondary-text hover:text-bright-cyan hover:border-bright-cyan/40 hover:scale-110 transition-all duration-300 group"
+                  className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
                 >
                   <Facebook className="h-5 w-5" />
                 </a>
@@ -70,17 +79,25 @@ const Footer = () => {
                   href="https://x.com/OpenRobotCombat" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-3 glass-effect rounded-xl border border-bright-cyan/20 text-secondary-text hover:text-bright-cyan hover:border-bright-cyan/40 hover:scale-110 transition-all duration-300 group"
+                  className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
                 >
                   <svg viewBox="0 0 24 24" className="h-5 w-5 fill-current">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
                 <a 
+                  href="https://www.linkedin.com/company/openrobotcombat" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
+                >
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a 
                   href="https://www.youtube.com/@OpenRobotCombat" 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="p-3 glass-effect rounded-xl border border-bright-cyan/20 text-secondary-text hover:text-bright-cyan hover:border-bright-cyan/40 hover:scale-110 transition-all duration-300 group"
+                  className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
                 >
                   <Youtube className="h-5 w-5" />
                 </a>
@@ -90,8 +107,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="space-y-6">
-            <h3 className="text-primary-text font-semibold text-lg flex items-center">
-              <div className="w-1 h-6 bg-gradient-to-b from-bright-cyan to-electric-blue mr-3 rounded-full"></div>
+            <h3 className="text-orc-white font-montserrat font-semibold text-lg flex items-center">
+              <div className="w-1 h-6 bg-orc-blue mr-3 rounded-full"></div>
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -99,7 +116,7 @@ const Footer = () => {
                 <li key={link.path}>
                   <Link 
                     to={link.path} 
-                    className="group flex items-center text-secondary-text hover:text-bright-cyan transition-all duration-300"
+                    className="group flex items-center text-gray-300 hover:text-orc-blue transition-all duration-300 font-aileron"
                   >
                     <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{link.name}</span>
@@ -111,8 +128,8 @@ const Footer = () => {
 
           {/* Resources */}
           <div className="space-y-6">
-            <h3 className="text-primary-text font-semibold text-lg flex items-center">
-              <div className="w-1 h-6 bg-gradient-to-b from-bright-cyan to-electric-blue mr-3 rounded-full"></div>
+            <h3 className="text-orc-white font-montserrat font-semibold text-lg flex items-center">
+              <div className="w-1 h-6 bg-orc-blue mr-3 rounded-full"></div>
               Resources
             </h3>
             <ul className="space-y-3">
@@ -120,7 +137,7 @@ const Footer = () => {
                 <li key={resource.path}>
                   <Link 
                     to={resource.path} 
-                    className="group flex items-center text-secondary-text hover:text-bright-cyan transition-all duration-300"
+                    className="group flex items-center text-gray-300 hover:text-orc-blue transition-all duration-300 font-aileron"
                   >
                     <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
                     <span className="group-hover:translate-x-1 transition-transform duration-300">{resource.name}</span>
@@ -132,20 +149,20 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-6">
-            <h3 className="text-primary-text font-semibold text-lg flex items-center">
-              <div className="w-1 h-6 bg-gradient-to-b from-bright-cyan to-electric-blue mr-3 rounded-full"></div>
+            <h3 className="text-orc-white font-montserrat font-semibold text-lg flex items-center">
+              <div className="w-1 h-6 bg-orc-blue mr-3 rounded-full"></div>
               Contact
             </h3>
             <div className="space-y-4">
               <div className="flex items-start space-x-3 group">
-                <div className="p-2 glass-effect rounded-lg border border-bright-cyan/20 group-hover:border-bright-cyan/40 transition-colors duration-300">
-                  <Mail className="w-4 h-4 text-bright-cyan" />
+                <div className="p-2 bg-gray-900/50 rounded-lg border border-orc-blue/30 group-hover:border-orc-blue transition-colors duration-300">
+                  <Mail className="w-4 h-4 text-orc-blue" />
                 </div>
                 <div>
-                  <p className="text-secondary-text font-medium">Email</p>
+                  <p className="text-gray-300 font-montserrat font-medium">Email</p>
                   <a 
                     href="mailto:info@openrobotcombat.com" 
-                    className="text-secondary-text hover:text-bright-cyan transition-colors duration-300 font-light"
+                    className="text-gray-300 hover:text-orc-blue transition-colors duration-300 font-aileron font-light"
                   >
                     info@openrobotcombat.com
                   </a>
@@ -153,14 +170,14 @@ const Footer = () => {
               </div>
               
               <div className="flex items-start space-x-3 group">
-                <div className="p-2 glass-effect rounded-lg border border-bright-cyan/20 group-hover:border-bright-cyan/40 transition-colors duration-300">
-                  <Phone className="w-4 h-4 text-bright-cyan" />
+                <div className="p-2 bg-gray-900/50 rounded-lg border border-orc-blue/30 group-hover:border-orc-blue transition-colors duration-300">
+                  <Phone className="w-4 h-4 text-orc-blue" />
                 </div>
                 <div>
-                  <p className="text-secondary-text font-medium">Phone</p>
+                  <p className="text-gray-300 font-montserrat font-medium">Phone</p>
                   <a 
                     href="tel:+4915730223392" 
-                    className="text-secondary-text hover:text-bright-cyan transition-colors duration-300 font-light"
+                    className="text-gray-300 hover:text-orc-blue transition-colors duration-300 font-aileron font-light"
                   >
                     +49 157 3022 3392
                   </a>
@@ -169,14 +186,14 @@ const Footer = () => {
             </div>
 
             {/* Newsletter Signup */}
-            <div className="glass-effect rounded-xl p-4 border border-bright-cyan/20 hover:border-bright-cyan/30 transition-colors duration-300">
-              <h4 className="text-primary-text font-semibold mb-2">Stay Updated</h4>
-              <p className="text-secondary-text text-sm font-light mb-3">
+            <div className="bg-gray-900/50 rounded-xl p-4 border border-orc-blue/30 hover:border-orc-blue transition-colors duration-300">
+              <h4 className="text-orc-white font-montserrat font-semibold mb-2">Stay Updated</h4>
+              <p className="text-gray-300 text-sm font-aileron font-light mb-3">
                 Get the latest news and updates from ORC.
               </p>
               <Link
                 to="/contact"
-                className="inline-flex items-center text-bright-cyan hover:text-electric-blue transition-colors duration-300 text-sm font-medium group"
+                className="inline-flex items-center text-orc-blue hover:text-blue-400 transition-colors duration-300 text-sm font-medium font-aileron group"
               >
                 <span>Subscribe</span>
                 <ArrowRight className="ml-1 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -186,10 +203,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-bright-cyan/10">
+        <div className="pt-8 border-t border-orc-blue/20">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="flex items-center space-x-6">
-              <p className="text-secondary-text text-sm font-light">
+              <p className="text-gray-300 text-sm font-aileron font-light">
                 &copy; {new Date().getFullYear()} Open Robot Combat. All rights reserved.
               </p>
             </div>
@@ -197,27 +214,16 @@ const Footer = () => {
             <div className="flex items-center space-x-6">
               <Link 
                 to="/privacy" 
-                className="text-secondary-text hover:text-bright-cyan transition-colors duration-300 text-sm font-light"
+                className="text-gray-300 hover:text-orc-blue transition-colors duration-300 text-sm font-aileron font-light"
               >
                 Privacy Policy
               </Link>
               <Link 
                 to="/terms" 
-                className="text-secondary-text hover:text-bright-cyan transition-colors duration-300 text-sm font-light"
+                className="text-gray-300 hover:text-orc-blue transition-colors duration-300 text-sm font-aileron font-light"
               >
                 Terms of Service
               </Link>
-            </div>
-          </div>
-          
-          {/* Decorative Elements */}
-          <div className="flex justify-center mt-8">
-            <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-bright-cyan rounded-full animate-pulse"></div>
-              <div className="w-16 h-0.5 bg-gradient-to-r from-bright-cyan to-transparent"></div>
-              <div className="w-3 h-3 border border-bright-cyan/40 rounded-full"></div>
-              <div className="w-16 h-0.5 bg-gradient-to-l from-bright-cyan to-transparent"></div>
-              <div className="w-2 h-2 bg-bright-cyan rounded-full animate-pulse"></div>
             </div>
           </div>
         </div>

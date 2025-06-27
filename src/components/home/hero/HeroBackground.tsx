@@ -1,56 +1,67 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 const HeroBackground = () => {
-  const [isVideoLoaded, setIsVideoLoaded] = useState(false);
-  const [isVideoError, setIsVideoError] = useState(false);
-
-  useEffect(() => {
-    // Preload the video
-    const video = document.createElement('video');
-    video.src = "https://neura-robotics.com/wp-content/uploads/2024/09/website-landing_1.mp4";
-    video.onloadeddata = () => setIsVideoLoaded(true);
-    video.onerror = () => setIsVideoError(true);
-  }, []);
-
   return (
     <div className="absolute inset-0">
-      {/* Primary blue gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e] via-[#16213e] to-[#0f3460]">
-        {/* Subtle geometric patterns */}
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-1/4 left-1/4 w-64 h-64 border border-blue-400/20 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-1/4 right-1/4 w-48 h-48 border border-blue-300/15 rounded-full animate-pulse delay-1000"></div>
-          <div className="absolute top-3/4 left-1/2 w-32 h-32 border border-blue-500/25 rounded-full animate-pulse delay-500"></div>
+      {/* Left Blue Spine - consistent with other sections */}
+      <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
+      
+      {/* Main dark background */}
+      <div className="absolute inset-0 bg-orc-black">
+        {/* Blue Wave Patterns - Multiple layers for depth */}
+        <div className="absolute inset-0">
+          {/* Primary Wave Layer */}
+          <div className="absolute inset-0">
+            <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="wave-gradient-1" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#0000F2" stopOpacity="0.4"/>
+                  <stop offset="50%" stopColor="#0000F2" stopOpacity="0.2"/>
+                  <stop offset="100%" stopColor="#0000F2" stopOpacity="0"/>
+                </radialGradient>
+                <radialGradient id="wave-gradient-2" cx="30%" cy="70%" r="60%">
+                  <stop offset="0%" stopColor="#0000F2" stopOpacity="0.3"/>
+                  <stop offset="70%" stopColor="#0000F2" stopOpacity="0.1"/>
+                  <stop offset="100%" stopColor="#0000F2" stopOpacity="0"/>
+                </radialGradient>
+                <radialGradient id="wave-gradient-3" cx="80%" cy="30%" r="40%">
+                  <stop offset="0%" stopColor="#0000F2" stopOpacity="0.35"/>
+                  <stop offset="60%" stopColor="#0000F2" stopOpacity="0.15"/>
+                  <stop offset="100%" stopColor="#0000F2" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
+              
+              {/* Wave shapes */}
+              <path d="M0,400 Q480,200 960,400 T1920,400 L1920,800 Q1440,600 960,800 T0,800 Z" fill="url(#wave-gradient-1)"/>
+              <path d="M0,600 Q320,350 640,600 T1280,600 Q1600,450 1920,600 L1920,1080 L0,1080 Z" fill="url(#wave-gradient-2)"/>
+              <path d="M960,200 Q1280,50 1600,200 T1920,200 L1920,500 Q1600,350 1280,500 T640,500 Q320,350 0,500 L0,200 Q320,50 640,200 T960,200 Z" fill="url(#wave-gradient-3)"/>
+            </svg>
+          </div>
+          
+          {/* Secondary Wave Layer - Animated */}
+          <div className="absolute inset-0 animate-pulse">
+            <svg className="w-full h-full" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+              <defs>
+                <radialGradient id="wave-gradient-animated" cx="60%" cy="40%" r="70%">
+                  <stop offset="0%" stopColor="#0000F2" stopOpacity="0.2"/>
+                  <stop offset="80%" stopColor="#0000F2" stopOpacity="0.05"/>
+                  <stop offset="100%" stopColor="#0000F2" stopOpacity="0"/>
+                </radialGradient>
+              </defs>
+              <path d="M0,300 Q400,100 800,300 T1600,300 Q1760,200 1920,300 L1920,700 Q1760,500 1600,700 T800,700 Q400,500 0,700 Z" fill="url(#wave-gradient-animated)"/>
+            </svg>
+          </div>
         </div>
         
-        {/* Radial gradient overlay for depth */}
-        <div className="absolute inset-0 bg-radial-gradient from-blue-600/20 via-transparent to-transparent"></div>
+        {/* Center spotlight effect - enhanced */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] bg-orc-blue/8 rounded-full blur-3xl"></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-orc-blue/5 rounded-full blur-2xl"></div>
+        </div>
       </div>
       
-      {/* Video Background - very subtle */}
-      {!isVideoError && (
-        <div className="absolute inset-0 w-full h-full overflow-hidden">
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            onLoadedData={() => setIsVideoLoaded(true)}
-            onError={() => setIsVideoError(true)}
-            className={`absolute w-full h-full object-cover transition-opacity duration-1000 ${
-              isVideoLoaded ? 'opacity-5' : 'opacity-0'
-            }`}
-          >
-            <source 
-              src="https://neura-robotics.com/wp-content/uploads/2024/09/website-landing_1.mp4" 
-              type="video/mp4"
-            />
-          </video>
-        </div>
-      )}
-
-      {/* Futuristic overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/20" />
+      {/* Soft overlay for enhanced contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/20" />
     </div>
   );
 };

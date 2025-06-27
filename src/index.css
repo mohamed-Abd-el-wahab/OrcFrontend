@@ -3,6 +3,42 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ==========================================================================
+   ORC Brand Typography System
+   ========================================================================== */
+
+/* Primary Font: Aileron (for headlines, UI elements) */
+.font-aileron {
+  font-family: 'Aileron', sans-serif;
+}
+
+/* Secondary Font: Montserrat (for body text, descriptions) */
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Brand Typography Hierarchy */
+.brand-headline {
+  font-family: 'Aileron', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.brand-subhead {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+}
+
+.brand-body {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   ORC Brand Animations
+   ========================================================================== */
+
 @keyframes float {
   0%, 100% {
     transform: translateY(0) translateX(0);
@@ -65,46 +101,161 @@
   }
 }
 
-/* Glow effect for CTA buttons */
+/* ==========================================================================
+   ORC Brand Effects & Components
+   ========================================================================== */
+
+/* Brand Glow Effects using exact brand blue #0000F2 */
 .glow-effect {
   box-shadow: 0 0 20px rgba(0, 0, 242, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .glow-effect:hover {
   box-shadow: 0 0 30px rgba(0, 0, 242, 0.5);
 }
 
-/* Radial gradient utility */
-.bg-radial-gradient {
-  background: radial-gradient(circle, var(--tw-gradient-stops));
+.brand-glow-primary {
+  box-shadow: 0 0 15px rgba(0, 0, 242, 0.4);
 }
 
-/* Futuristic gradient backgrounds */
+.brand-glow-subtle {
+  box-shadow: 0 0 10px rgba(0, 0, 242, 0.2);
+}
+
+/* Brand-specific gradient backgrounds */
 .gradient-primary {
   background: linear-gradient(135deg, #0A0A0F 0%, #111115 100%);
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #4F7DF3 0%, #5B8DEF 100%);
+  background: linear-gradient(135deg, #0000F2 0%, #0000F2 100%);
 }
 
-/* Glass morphism effect */
+.gradient-brand-blue {
+  background: linear-gradient(135deg, #0000F2 0%, rgba(0, 0, 242, 0.8) 100%);
+}
+
+/* Glass morphism effect with brand colors */
 .glass-effect {
   background: rgba(10, 10, 15, 0.3);
   backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
+.glass-effect-brand {
+  background: rgba(0, 0, 242, 0.1);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 242, 0.2);
+}
+
+/* ==========================================================================
+   ORC Brand Patterns & Design Elements
+   ========================================================================== */
+
+/* Brand geometric patterns */
+.brand-pattern-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 242, 0.1) 1px, transparent 0);
+  background-size: 50px 50px;
+}
+
+.brand-pattern-grid {
+  background-image: 
+    linear-gradient(rgba(0, 0, 242, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 242, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Brand accent lines and elements */
+.brand-accent-line {
+  position: relative;
+}
+
+.brand-accent-line::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(to bottom, #0000F2, rgba(0, 0, 242, 0.3));
+  border-radius: 2px;
+}
+
+/* ==========================================================================
+   ORC Brand Buttons & Interactive Elements
+   ========================================================================== */
+
+.btn-brand-primary {
+  @apply px-6 py-3 bg-orc-blue text-orc-white rounded-xl font-montserrat font-semibold;
+  @apply hover:bg-blue-700 transition-all duration-300 transform hover:scale-105;
+  @apply shadow-lg hover:shadow-xl;
+  box-shadow: 0 4px 15px rgba(0, 0, 242, 0.3);
+}
+
+.btn-brand-primary:hover {
+  box-shadow: 0 8px 25px rgba(0, 0, 242, 0.4);
+}
+
+.btn-brand-secondary {
+  @apply px-6 py-3 bg-white/10 backdrop-blur-sm text-orc-white rounded-xl;
+  @apply font-montserrat font-medium border border-white/20;
+  @apply hover:bg-white/20 hover:border-white/40 transition-all duration-300;
+}
+
+/* ==========================================================================
+   ORC Brand Layout & Spacing
+   ========================================================================== */
+
+/* Brand-consistent section spacing */
+.section-padding {
+  @apply py-16 md:py-24 lg:py-32;
+}
+
+.section-padding-sm {
+  @apply py-8 md:py-12 lg:py-16;
+}
+
+/* Brand-specific container widths */
+.brand-container {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+
+/* ==========================================================================
+   Global Transitions & Performance
+   ========================================================================== */
+
 /* Smooth transitions for all interactive elements */
 * {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Custom font classes */
-.font-montserrat {
-  font-family: 'Montserrat', sans-serif;
+/* Disable transitions for reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
-.font-aileron {
-  font-family: 'Aileron', sans-serif;
+/* ==========================================================================
+   Utility Classes for Brand Consistency
+   ========================================================================== */
+
+.text-brand-gradient {
+  background: linear-gradient(135deg, #0000F2 0%, #4F7DF3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.border-brand-gradient {
+  border-image: linear-gradient(135deg, #0000F2 0%, rgba(0, 0, 242, 0.5) 100%) 1;
+}
+
+/* Brand-specific focus states */
+.focus-brand:focus {
+  outline: 2px solid #0000F2;
+  outline-offset: 2px;
 }

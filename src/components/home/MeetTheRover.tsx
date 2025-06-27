@@ -9,18 +9,18 @@ const MeetTheRover = () => {
   const slides = [
     {
       id: 1,
-      image: "/rover.jpg",
-      alt: "ROVER front view"
+      image: "/rover.png",
+      alt: "RIO front view"
     },
     {
       id: 2,
-      image: "/rover_pro.jpg",
-      alt: "ROVER side view"
+      image: "/rover4.png",
+      alt: "RIO side view"
     },
     {
       id: 3,
-      image: "/mav.jpg",
-      alt: "ROVER back view"
+      image: "/rover3.png",
+      alt: "RIO back view"
     }
   ];
 
@@ -51,39 +51,59 @@ const MeetTheRover = () => {
   };
 
   return (
-    <section className="py-32 bg-gradient-to-b from-black to-gray-900 relative">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="w-full h-full" style={{
-          backgroundImage: `radial-gradient(circle at 2px 2px, rgba(0, 0, 242, 0.1) 1px, transparent 0)`,
-          backgroundSize: '80px 80px'
-        }}></div>
-      </div>
+    <section className="relative bg-orc-black overflow-hidden py-16 md:py-20">
+      {/* Left Blue Spine */}
+      <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
       
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      {/* Background Pattern - Diagonal Arrows */}
+      <div className="absolute inset-0 opacity-[0.05]">
+        <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="rover-diagonal-arrows" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M5,5 L15,15 M15,5 L5,15" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+              <path d="M10,0 L20,10 M20,0 L10,10" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+              <path d="M0,10 L10,20 M10,10 L0,20" stroke="#0000F2" strokeWidth="0.5" fill="none"/>
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#rover-diagonal-arrows)"/>
+        </svg>
+      </div>
+
+      <div className="brand-container relative z-20 px-4 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-20 animate-fade-in">
-          <div className="flex items-center justify-center space-x-4 mb-8">
-            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-[#0000F2]"></div>
-            <Zap className="w-6 h-6 text-[#0000F2] animate-pulse" />
-            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-[#0000F2]"></div>
+        <div className="text-center space-y-6 mb-12">
+          {/* Brand Geometric Accent */}
+          <div className="flex items-center justify-center space-x-4 mb-6">
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-orc-blue"></div>
+            <Zap className="w-6 h-6 text-orc-blue animate-pulse" />
+            <div className="w-16 h-0.5 bg-gradient-to-l from-transparent to-orc-blue"></div>
           </div>
-          <h2 className="text-4xl md:text-6xl font-['Montserrat',sans-serif] font-black text-white mb-6 tracking-tight">
-            MEET THE ROVER
+
+          {/* Brand Headline Typography */}
+          <h2 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white">
+            Meet{' '}
+            <span className="text-orc-blue">RIO</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-['Aileron',sans-serif] font-light leading-relaxed">
-            The ultimate modular combat robot platform, engineered in Egypt for global competition
+          
+          {/* Brand Body Typography */}
+          <p className="font-aileron text-lg leading-relaxed text-gray-300 max-w-2xl mx-auto">
+            Professional-grade combat robotics platform engineered in Egypt. Build, customize, and compete with cutting-edge modular technology designed for the next generation of innovators.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Image Carousel */}
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            {/* Glow Effect */}
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#0000F2]/20 to-blue-400/20 rounded-3xl blur-2xl"></div>
-            
-            <div className="relative bg-gray-900/50 backdrop-blur-sm rounded-2xl p-6 border border-gray-700">
-              <div className="relative aspect-square rounded-xl overflow-hidden bg-gradient-to-br from-gray-800 to-gray-900">
+          <div className="relative group rover-image-container">
+            <div className="relative rounded-2xl overflow-hidden rover-image">
+              {/* Blue Glow Effect */}
+              <div className="absolute -inset-1 bg-orc-blue/20 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Image Container */}
+              <div className="relative bg-gray-900 rounded-2xl overflow-hidden aspect-square">
+                {/* Brand Accent Dot */}
+                <div className="absolute top-4 right-4 w-3 h-3 bg-orc-blue rounded-full z-20"></div>
+                
+                {/* Rover Image */}
                 <img
                   src={slides[currentImageIndex].image}
                   alt={slides[currentImageIndex].alt}
@@ -93,54 +113,82 @@ const MeetTheRover = () => {
                 {/* Navigation Arrows */}
                 <button
                   onClick={prevImage}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-gray-900/80 backdrop-blur-sm rounded-full text-white hover:text-[#0000F2] border border-gray-600 hover:border-[#0000F2]/40 transition-all duration-300 hover:scale-110"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm border border-orc-blue/30 rounded-full text-orc-white hover:text-orc-blue hover:border-orc-blue hover:bg-black/70 transition-all duration-300 hover:scale-110 z-30"
                 >
                   <ChevronLeft className="w-6 h-6" />
                 </button>
                 <button
                   onClick={nextImage}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-gray-900/80 backdrop-blur-sm rounded-full text-white hover:text-[#0000F2] border border-gray-600 hover:border-[#0000F2]/40 transition-all duration-300 hover:scale-110"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 bg-black/50 backdrop-blur-sm border border-orc-blue/30 rounded-full text-orc-white hover:text-orc-blue hover:border-orc-blue hover:bg-black/70 transition-all duration-300 hover:scale-110 z-30"
                 >
                   <ChevronRight className="w-6 h-6" />
                 </button>
-              </div>
-              
-              {/* Slide Indicators */}
-              <div className="flex justify-center mt-6 space-x-3">
-                {slides.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentImageIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      currentImageIndex === index 
-                        ? 'bg-[#0000F2] scale-125' 
-                        : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
-                  />
-                ))}
+                
+                {/* Image Caption Overlay */}
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                  <div className="text-left">
+                    <h3 className="font-montserrat font-bold text-orc-white text-lg mb-1">
+                      Combat-Ready Engineering
+                    </h3>
+                    <p className="font-aileron text-gray-300 text-sm">
+                      Professional-grade robotics platform built for competition.
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
+            
+            {/* Slide Indicators */}
+            <div className="flex justify-center mt-6 space-x-3">
+              {slides.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentImageIndex(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    currentImageIndex === index 
+                      ? 'bg-orc-blue scale-125' 
+                      : 'bg-gray-600 hover:bg-gray-500'
+                  }`}
+                />
+              ))}
+            </div>
+
+            {/* Parallax Tilt Effect (Desktop) */}
+            <style dangerouslySetInnerHTML={{
+              __html: `
+                @media (min-width: 1024px) {
+                  .rover-image-container:hover .rover-image {
+                    transform: perspective(1000px) rotateY(-2deg);
+                    transition: transform 0.6s ease-out;
+                  }
+                }
+              `
+            }} />
           </div>
 
           {/* Content */}
-          <div className="space-y-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="space-y-8">
             {/* Specifications */}
             <div>
-              <h3 className="text-2xl font-['Montserrat',sans-serif] font-bold text-white mb-8 flex items-center">
-                <div className="w-1 h-8 bg-gradient-to-b from-[#0000F2] to-blue-400 mr-4 rounded-full"></div>
-                KEY SPECIFICATIONS
+              <h3 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white mb-6">
+                Built for{' '}
+                <span className="text-orc-blue">Competition</span>
               </h3>
+              
+              <p className="font-aileron text-lg leading-relaxed text-gray-300 max-w-lg mb-8">
+                Every component engineered for performance, durability, and modularity. From weekend workshops to international championships — this is your platform to innovate and dominate.
+              </p>
+              
               <div className="space-y-4">
                 {specifications.map((spec, index) => (
                   <div 
                     key={index} 
-                    className="flex items-start group"
-                    style={{ animationDelay: `${index * 0.1}s` }}
+                    className="flex items-center space-x-4 group cursor-default"
                   >
-                    <div className="p-1 bg-gray-900/50 backdrop-blur-sm rounded-full mr-4 mt-1 border border-gray-700 group-hover:border-[#0000F2]/40 transition-colors duration-300">
-                      <Check className="w-4 h-4 text-[#0000F2]" />
+                    <div className="flex-shrink-0 w-6 h-6 bg-orc-blue rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-300">
+                      <Check className="w-4 h-4 text-white" />
                     </div>
-                    <span className="text-gray-300 font-['Aileron',sans-serif] font-light leading-relaxed group-hover:text-white transition-colors duration-300">
+                    <span className="font-aileron text-gray-300 text-base">
                       {spec}
                     </span>
                   </div>
@@ -149,24 +197,33 @@ const MeetTheRover = () => {
             </div>
 
             {/* Pricing and CTA */}
-            <div className="bg-gray-900/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700 hover:border-[#0000F2]/40 transition-all duration-500">
-              <div className="space-y-6">
-                <div>
-                  <div className="text-4xl font-['Montserrat',sans-serif] font-black text-white mb-2 flex items-baseline">
-                    <span className="text-[#0000F2]">From EGP</span>
-                    <span className="ml-2">25,000</span>
-                  </div>
-                  <p className="text-gray-400 font-['Aileron',sans-serif] font-light">
-                    Base configuration. Additional modules and customizations available.
-                  </p>
+            <div className="space-y-6 pt-4">
+              <div>
+                <div className="text-3xl font-montserrat font-bold text-orc-white mb-2 flex items-baseline">
+                  <span className="text-orc-blue">From EGP</span>
+                  <span className="ml-2">25,000</span>
                 </div>
-                
+                <p className="font-aileron text-gray-300 text-base">
+                  Base configuration with modular upgrades available. Professional engineering meets accessible innovation.
+                </p>
+              </div>
+              
+              {/* Dual CTAs */}
+              <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/products/rover"
-                  className="w-full inline-flex items-center justify-center px-8 py-4 bg-[#0000F2] text-white rounded-xl hover:bg-blue-700 transition-all duration-300 text-lg font-['Montserrat',sans-serif] font-semibold group shadow-lg transform hover:scale-105"
+                  className="btn-brand-primary inline-flex items-center justify-center px-8 py-4 bg-orc-blue text-orc-white font-medium rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-orc-blue/25 transition-all duration-300 group"
                 >
                   Configure & Buy
-                  <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                  <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </Link>
+                
+                <Link
+                  to="/services"
+                  className="btn-brand-secondary inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-orc-blue text-orc-blue font-medium rounded-xl hover:bg-orc-blue hover:text-orc-white hover:scale-105 transition-all duration-300 group"
+                >
+                  Custom Build
+                  <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
                 </Link>
               </div>
             </div>

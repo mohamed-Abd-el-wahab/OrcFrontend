@@ -1,72 +1,59 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, Trophy, ArrowRight } from 'lucide-react';
+import { Rocket, Trophy, ArrowRight, Users } from 'lucide-react';
 
 const HeroContent = () => {
   return (
-    <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 animate-fade-in">
-      {/* Main Logo with Clean Design */}
-      <div className="flex flex-col items-center justify-center mb-16">
-        {/* ORC Logo Section */}
-        <div className="mb-12">
-          <div className="inline-flex items-center space-x-8">
-            {/* Large ORC Text Logo */}
-            <div className="text-8xl md:text-9xl font-['Montserrat',sans-serif] font-black text-white tracking-tight">
-              ORC
-            </div>
-            
-            {/* Tagline */}
-            <div className="text-left">
-              <div className="text-3xl md:text-4xl font-['Montserrat',sans-serif] font-light text-white">
-                A Place
-              </div>
-              <div className="text-3xl md:text-4xl font-['Montserrat',sans-serif] font-light text-white">
-                for Builders
-              </div>
-            </div>
-          </div>
+    <div className="relative z-20 flex flex-col items-center justify-center min-h-screen text-center px-4 lg:px-8 pb-20">
+      {/* Main Logo Section - Using SVG Hero Logo */}
+      <div className="flex flex-col items-center justify-center mb-8">
+        {/* Brand Geometric Accent */}
+        <div className="flex items-center justify-center space-x-6 mb-8">
+          <div className="w-20 h-0.5 bg-gradient-to-r from-transparent to-orc-blue"></div>
+          <div className="w-3 h-3 bg-orc-blue rounded-full animate-pulse"></div>
+          <div className="w-20 h-0.5 bg-gradient-to-l from-transparent to-orc-blue"></div>
         </div>
         
-        {/* Geometric accent lines */}
-        <div className="flex items-center justify-center space-x-4 mb-12">
-          <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-[#0000F2]"></div>
-          <div className="w-3 h-3 bg-[#0000F2] rounded-full animate-pulse"></div>
-          <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-[#0000F2]"></div>
+        {/* Hero Logo SVG - Made Much Bigger */}
+        <div className="mb-8">
+          <img 
+            src="/hero_section_logo.svg" 
+            alt="ORC - A Place for Builders"
+            className="w-auto h-40 md:h-56 lg:h-72 xl:h-96 max-w-full object-contain"
+            loading="eager"
+          />
         </div>
         
         {/* Main Tagline */}
-        <h1 className="text-4xl md:text-6xl font-['Montserrat',sans-serif] font-bold text-white mb-6 tracking-tight leading-tight">
+        <h1 className="font-montserrat font-extrabold text-3xl md:text-4xl lg:text-5xl xl:text-6xl text-orc-white mb-6 tracking-tight leading-tight max-w-5xl">
           Empowering the Next Generation
           <br />
-          <span className="text-[#0000F2]">of Robotic Innovators</span>
+          <span className="text-orc-blue">of Robotic Innovators</span>
         </h1>
         
         {/* Subtitle */}
-        <p className="text-xl md:text-2xl text-gray-200 mb-16 max-w-3xl leading-relaxed font-['Aileron',sans-serif] font-light">
+        <p className="font-aileron text-lg md:text-xl lg:text-2xl text-gray-300 mb-8 max-w-4xl leading-relaxed">
           Through cutting-edge competitions, collaborative learning, and hands-on experience with professional-grade robotics technology
         </p>
         
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-6 mb-16">
+        <div className="flex flex-col sm:flex-row items-center gap-6">
           <Link
-            to="/competition"
-            className="group relative overflow-hidden px-12 py-5 bg-[#0000F2] text-white rounded-xl hover:bg-blue-700 transition-all duration-300 text-lg font-['Montserrat',sans-serif] font-semibold shadow-2xl transform hover:scale-105"
+            to="/community"
+            className="btn-brand-primary inline-flex items-center justify-center px-8 py-4 bg-orc-blue text-orc-white font-medium rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-orc-blue/25 transition-all duration-300 group text-lg"
           >
-            <span className="relative z-10 flex items-center">
-              <Trophy className="w-6 h-6 mr-3" />
-              Join Competition
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <Users className="w-5 h-5 mr-3" />
+            Join Community
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
           
           <Link
             to="/services"
-            className="group flex items-center px-12 py-5 bg-white/10 backdrop-blur-sm text-white rounded-xl text-lg font-['Montserrat',sans-serif] font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 hover:border-white/40"
+            className="btn-brand-secondary inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-orc-blue text-orc-blue font-medium rounded-xl hover:bg-orc-blue hover:text-orc-white hover:scale-105 transition-all duration-300 group text-lg"
           >
-            <Rocket className="w-6 h-6 mr-3" />
+            <Rocket className="w-5 h-5 mr-3" />
             Explore Services
-            <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>
       </div>
