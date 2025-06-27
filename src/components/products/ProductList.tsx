@@ -1,54 +1,115 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useCart } from '../../contexts/CartContext';
+import CartNotification from '../cart/CartNotification';
 import { products } from '../../data/products';
+import { ProductStatus } from '../../types/products';
+import { designClasses } from '../../config/design';
 
 const ProductList = () => {
   const navigate = useNavigate();
+  const { addToCart } = useCart();
+  const [showNotification, setShowNotification] = useState(false);
+  const [addedItemName, setAddedItemName] = useState('');
+
+  const handleAddToCart = (product: any) => {
+    // Only allow adding available products to cart
+    if (product.status !== 'available') return;
+
+    // Add the default variant to cart
+    const defaultVariant = product.variants[0];
+    addToCart({
+      id: defaultVariant.id,
+      type: 'product',
+      name: `${defaultVariant.name} ${defaultVariant.size}`,
+      price: defaultVariant.price,
+      image: product.image
+    });
+
+    // Show notification
+    setAddedItemName(`${defaultVariant.name} ${defaultVariant.size}`);
+    setShowNotification(true);
+  };
+
+  const getStatusBadge = (status: ProductStatus) => {
+    const statusConfig = {
+      available: { color: 'bg-green-500', text: 'Available' },
+      coming_soon: { color: 'bg-yellow-500', text: 'Coming Soon' },
+      out_of_stock: { color: 'bg-red-500', text: 'Out of Stock' }
+    };
+
+    const config = statusConfig[status];
+    return (
+      <span className={`px-3 py-1 ${config.color} text-white text-sm font-medium rounded-full`}>
+        {config.text}
+      </span>
+    );
+  };
 
   return (
-    <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="space-y-32">
-          {products.map((product, index) => (
-            <div key={product.id} className="relative">
-              {/* Background Glow */}
-              <div className="absolute inset-0 bg-gradient-to-r from-blue-500/20 via-transparent to-transparent rounded-3xl blur-3xl opacity-20" />
+    <>
+      <section className={designClasses.section}>
+        <div className={designClasses.sectionContainer}>
+          {/* Section Header */}
+          <div className="max-w-3xl mx-auto text-center mb-12">
+            <h2 className={`${designClasses.sectionHeadline} mb-6`}>
+              Our Products
+            </h2>
+            <p className={`${designClasses.bodyText} text-gray-300`}>
+              Discover our range of advanced robotics products designed for education, competition, and innovation.
+            </p>
+          </div>
               
-              {/* Product Content */}
-              <div className="relative grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Image */}
-                <div className={`order-1 ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                  <div className="aspect-square rounded-2xl overflow-hidden bg-gray-900">
+          {/* Products Grid */}
+          <div className={`${designClasses.grid} grid-cols-1 md:grid-cols-2 lg:grid-cols-3`}>
+            {products.map((product) => (
+              <div 
+                key={product.id}
+                className="bg-gray-800/50 rounded-xl overflow-hidden border border-gray-700/50 hover:border-orc-blue/50 transition-all duration-300 group"
+              >
+                <div className="aspect-square relative overflow-hidden">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover"
+                    className={`w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-300 ${
+                      product.status === 'out_of_stock' ? 'opacity-50 blur-[2px]' : ''
+                    }`}
                     />
+                  {product.status === 'out_of_stock' && (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-white bg-orc-black/70 px-6 py-2 rounded-lg">
+                        SOLD OUT
+                      </span>
                   </div>
+                  )}
                 </div>
 
-                {/* Content */}
-                <div className={`order-2 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
-                  <h2 className="text-4xl font-bold text-white mb-4">{product.name}</h2>
-                  <p className="text-xl text-gray-400 mb-8">{product.title}</p>
-                  <p className="text-gray-300 mb-12">{product.description}</p>
-
-                  {/* Features */}
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {product.features.map((feature, i) => (
-                      <div key={i} className="space-y-4">
-                        <feature.icon className="w-8 h-8 text-blue-500" />
-                        <h3 className="text-lg font-semibold text-white">{feature.title}</h3>
-                        <p className="text-gray-400">{feature.description}</p>
-                      </div>
-                    ))}
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white">{product.name}</h3>
+                    {getStatusBadge(product.status)}
+                  </div>
+                  <p className="text-gray-400 mb-4">{product.title}</p>
+                  
+                  <div className="flex items-center justify-between mb-6">
+                    <span className="text-xl font-semibold text-orc-blue">
+                      From ${product.variants[0].price.toLocaleString()}
+                    </span>
                   </div>
 
+                  <div className="flex items-center justify-between pt-6 border-t border-gray-700/50">
                   <button 
                     onClick={() => navigate(`/products/${product.id}`)}
-                    className="mt-12 px-8 py-3 bg-transparent border-2 border-white/20 rounded-full text-white hover:bg-white/10 transition-colors duration-300"
-                  >
-                    Learn More
+                      className={designClasses.buttonSecondary}
+                    >
+                      View Details
+                    </button>
+                    <button 
+                      onClick={() => handleAddToCart(product)}
+                      disabled={product.status !== 'available'}
+                      className={`${designClasses.button} disabled:opacity-50 disabled:cursor-not-allowed`}
+                    >
+                      {product.status === 'available' ? 'Add to Cart' : 'Not Available'}
                   </button>
                 </div>
               </div>
@@ -57,6 +118,13 @@ const ProductList = () => {
         </div>
       </div>
     </section>
+
+      <CartNotification
+        isOpen={showNotification}
+        onClose={() => setShowNotification(false)}
+        itemName={addedItemName}
+      />
+    </>
   );
 };
 

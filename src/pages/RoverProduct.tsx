@@ -19,7 +19,7 @@ const RoverProduct = () => {
   );
 
   const getProductImage = (model: string) => {
-    return model === 'ROVER Pro' ? '/rover_pro.jpg' : '/rover.png';
+    return model === 'ROVER Pro' ? '/rover_pro.jpg' : '/rover.jpg';
   };
 
   const handleAddToCart = () => {
