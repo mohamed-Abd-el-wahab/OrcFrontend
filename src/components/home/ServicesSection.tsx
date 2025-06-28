@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Cog, Zap, Shield } from 'lucide-react';
+import { designClasses } from '../../config/design';
 
 const ServicesSection = () => {
   const services = [
@@ -24,7 +25,7 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="relative bg-orc-black overflow-hidden py-16 md:py-20">
+    <section className={`${designClasses.section} bg-orc-black overflow-hidden ${designClasses.sectionPadding}`}>
       {/* Left Blue Spine */}
       <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
       
@@ -42,21 +43,21 @@ const ServicesSection = () => {
         </svg>
       </div>
 
-      <div className="brand-container relative z-20 px-4 lg:px-8">
-        <div className="text-center space-y-6 mb-12">
-          <h2 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white">
+      <div className={`${designClasses.sectionContainer} relative z-20`}>
+        <div className={`${designClasses.sectionHeader} space-y-6`}>
+          <h2 className={designClasses.sectionHeadline}>
             Our <span className="text-orc-blue">Services</span>
           </h2>
-          <p className="font-aileron text-lg leading-relaxed text-gray-300 max-w-2xl mx-auto">
+          <p className={`${designClasses.leadText} max-w-2xl mx-auto`}>
             From concept to competition, we provide comprehensive robotics solutions that push the boundaries of innovation.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className={`${designClasses.grid} md:grid-cols-3`}>
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 rounded-2xl p-8 hover:border-orc-blue/50 transition-all duration-500 hover:scale-105"
+              className={`group relative ${designClasses.card} backdrop-blur-sm hover:border-orc-blue/50 transition-all duration-500 hover:scale-105`}
             >
               {/* Blue Glow Effect */}
               <div className="absolute -inset-1 bg-orc-blue/10 rounded-2xl blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
@@ -103,7 +104,7 @@ const ServicesSection = () => {
 
         {/* Section CTA */}
         <div className="text-center mt-12">
-          <button className="btn-brand-primary inline-flex items-center justify-center px-8 py-4 bg-orc-blue text-orc-white font-medium rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-orc-blue/25 transition-all duration-300 group">
+          <button className={designClasses.button}>
             Explore All Services
             <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
           </button>

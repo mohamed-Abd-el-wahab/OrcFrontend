@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, Check, Zap } from 'lucide-react';
+import { designClasses } from '../../config/design';
 
 const MeetTheRover = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -51,7 +52,7 @@ const MeetTheRover = () => {
   };
 
   return (
-    <section className="relative bg-orc-black overflow-hidden py-16 md:py-20">
+    <section className={`${designClasses.section} bg-orc-black overflow-hidden ${designClasses.sectionPadding}`}>
       {/* Left Blue Spine */}
       <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
       
@@ -69,9 +70,9 @@ const MeetTheRover = () => {
         </svg>
       </div>
 
-      <div className="brand-container relative z-20 px-4 lg:px-8">
+      <div className={`${designClasses.sectionContainer} relative z-20`}>
         {/* Section Header */}
-        <div className="text-center space-y-6 mb-12">
+        <div className={`${designClasses.sectionHeader} space-y-6`}>
           {/* Brand Geometric Accent */}
           <div className="flex items-center justify-center space-x-4 mb-6">
             <div className="w-16 h-0.5 bg-gradient-to-r from-transparent to-orc-blue"></div>
@@ -80,18 +81,18 @@ const MeetTheRover = () => {
           </div>
 
           {/* Brand Headline Typography */}
-          <h2 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white">
+          <h2 className={designClasses.sectionHeadline}>
             Meet{' '}
             <span className="text-orc-blue">RIO</span>
           </h2>
           
           {/* Brand Body Typography */}
-          <p className="font-aileron text-lg leading-relaxed text-gray-300 max-w-2xl mx-auto">
+          <p className={`${designClasses.leadText} max-w-2xl mx-auto`}>
             Professional-grade combat robotics platform engineered in Egypt. Build, customize, and compete with cutting-edge modular technology designed for the next generation of innovators.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className={`${designClasses.grid} grid-cols-1 lg:grid-cols-2 items-center`}>
           {/* Image Carousel */}
           <div className="relative group rover-image-container">
             <div className="relative rounded-2xl overflow-hidden rover-image">
@@ -170,12 +171,12 @@ const MeetTheRover = () => {
           <div className="space-y-8">
             {/* Specifications */}
             <div>
-              <h3 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white mb-6">
+              <h3 className={`${designClasses.sectionHeadline} mb-6`}>
                 Built for{' '}
                 <span className="text-orc-blue">Competition</span>
               </h3>
               
-              <p className="font-aileron text-lg leading-relaxed text-gray-300 max-w-lg mb-8">
+              <p className={`${designClasses.leadText} max-w-lg mb-8`}>
                 Every component engineered for performance, durability, and modularity. From weekend workshops to international championships — this is your platform to innovate and dominate.
               </p>
               
@@ -212,7 +213,7 @@ const MeetTheRover = () => {
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/products/rover"
-                  className="btn-brand-primary inline-flex items-center justify-center px-8 py-4 bg-orc-blue text-orc-white font-medium rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-orc-blue/25 transition-all duration-300 group"
+                  className={designClasses.button}
                 >
                   Configure & Buy
                   <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
@@ -220,7 +221,7 @@ const MeetTheRover = () => {
                 
                 <Link
                   to="/services"
-                  className="btn-brand-secondary inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-orc-blue text-orc-blue font-medium rounded-xl hover:bg-orc-blue hover:text-orc-white hover:scale-105 transition-all duration-300 group"
+                  className={designClasses.buttonSecondary}
                 >
                   Custom Build
                   <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />

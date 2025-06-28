@@ -1,0 +1,212 @@
+/* Global Design System Configuration */
+:root {
+  /* === SPACING SCALE === */
+  --spacing-xs: 0.25rem;    /* 4px */
+  --spacing-sm: 0.5rem;     /* 8px */
+  --spacing-md: 0.75rem;    /* 12px */
+  --spacing-lg: 1rem;       /* 16px */
+  --spacing-xl: 1.5rem;     /* 24px */
+  --spacing-2xl: 2rem;      /* 32px */
+  --spacing-3xl: 3rem;      /* 48px */
+  --spacing-4xl: 4rem;      /* 64px */
+  --spacing-5xl: 6rem;      /* 96px */
+  --spacing-6xl: 8rem;      /* 128px */
+
+  /* === SECTION SPACING === */
+  --section-padding-y: 3rem;           /* 48px - Mobile */
+  --section-padding-y-md: 4rem;        /* 64px - Desktop */
+  --section-spacing: var(--spacing-4xl);
+  --container-padding-x: 1rem;         /* 16px - Mobile */
+  --container-padding-x-lg: 2rem;      /* 32px - Desktop */
+
+  /* === TYPOGRAPHY SCALE === */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+  --text-6xl: 3.75rem;     /* 60px */
+
+  /* === HEADLINE SCALE === */
+  --headline-sm: var(--text-2xl);      /* 24px - Mobile headlines */
+  --headline-md: var(--text-3xl);      /* 30px - Desktop headlines */
+  --headline-lg: var(--text-4xl);      /* 36px - Large headlines */
+  --headline-xl: var(--text-5xl);      /* 48px - Hero headlines */
+
+  /* === LOGO SIZING === */
+  --logo-header: 2rem;                 /* 32px - Navbar logo */
+  --logo-hero-sm: 10rem;               /* 160px - Mobile hero logo */
+  --logo-hero-md: 12rem;               /* 192px - Tablet hero logo */
+  --logo-hero-lg: 14rem;               /* 224px - Desktop hero logo */
+  --logo-hero-xl: 18rem;               /* 288px - Large screen hero logo */
+
+  /* === COMPONENT SIZING === */
+  --navbar-height: 4rem;               /* 64px */
+  --button-padding-x: 1.25rem;         /* 20px */
+  --button-padding-y: 0.625rem;        /* 10px */
+  --button-padding-x-lg: 1.5rem;       /* 24px */
+  --button-padding-y-lg: 0.75rem;      /* 12px */
+  --border-radius: 0.75rem;            /* 12px */
+  --border-radius-lg: 1rem;            /* 16px */
+
+  /* === GRID & LAYOUT === */
+  --grid-gap: 1.5rem;                  /* 24px - Default grid gap */
+  --grid-gap-lg: 2rem;                 /* 32px - Large grid gap */
+  --card-padding: 1.5rem;              /* 24px */
+  --card-padding-lg: 2rem;             /* 32px */
+
+  /* === ANIMATION & TRANSITIONS === */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* === BREAKPOINTS (for reference) === */
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+}
+
+/* === UTILITY CLASSES === */
+.section-spacing {
+  padding-top: var(--section-padding-y);
+  padding-bottom: var(--section-padding-y);
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: var(--section-padding-y-md);
+    padding-bottom: var(--section-padding-y-md);
+  }
+}
+
+.container-spacing {
+  padding-left: var(--container-padding-x);
+  padding-right: var(--container-padding-x);
+}
+
+@media (min-width: 1024px) {
+  .container-spacing {
+    padding-left: var(--container-padding-x-lg);
+    padding-right: var(--container-padding-x-lg);
+  }
+}
+
+.headline-responsive {
+  font-size: var(--headline-sm);
+}
+
+@media (min-width: 768px) {
+  .headline-responsive {
+    font-size: var(--headline-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .headline-responsive {
+    font-size: var(--headline-lg);
+  }
+}
+
+.hero-logo-responsive {
+  height: var(--logo-hero-sm);
+}
+
+@media (min-width: 640px) {
+  .hero-logo-responsive {
+    height: var(--logo-hero-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-logo-responsive {
+    height: var(--logo-hero-lg);
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-logo-responsive {
+    height: var(--logo-hero-xl);
+  }
+}
+
+.btn-responsive {
+  padding: var(--button-padding-y) var(--button-padding-x);
+  border-radius: var(--border-radius);
+  transition: var(--transition-normal);
+}
+
+@media (min-width: 640px) {
+  .btn-responsive {
+    padding: var(--button-padding-y-lg) var(--button-padding-x-lg);
+  }
+}
+
+.grid-responsive {
+  gap: var(--grid-gap);
+}
+
+@media (min-width: 768px) {
+  .grid-responsive {
+    gap: var(--grid-gap-lg);
+  }
+}
+
+.card-responsive {
+  padding: var(--card-padding);
+  border-radius: var(--border-radius-lg);
+}
+
+@media (min-width: 768px) {
+  .card-responsive {
+    padding: var(--card-padding-lg);
+  }
+}
+
+/* === SCALE MODIFIERS === */
+.scale-compact {
+  --section-padding-y: 2rem;           /* More compact */
+  --section-padding-y-md: 3rem;
+  --grid-gap: 1rem;
+  --grid-gap-lg: 1.5rem;
+  --headline-sm: var(--text-xl);
+  --headline-md: var(--text-2xl);
+  --headline-lg: var(--text-3xl);
+  --headline-xl: var(--text-4xl);
+}
+
+.scale-spacious {
+  --section-padding-y: 4rem;           /* More spacious */
+  --section-padding-y-md: 6rem;
+  --grid-gap: 2rem;
+  --grid-gap-lg: 3rem;
+  --headline-sm: var(--text-3xl);
+  --headline-md: var(--text-4xl);
+  --headline-lg: var(--text-5xl);
+  --headline-xl: var(--text-6xl);
+}
+
+/* === COMPONENT-SPECIFIC VARIABLES === */
+.hero-section {
+  --hero-min-height: 100vh;
+  --hero-content-spacing: var(--spacing-lg);
+}
+
+.navbar-component {
+  height: var(--navbar-height);
+}
+
+.section-header {
+  margin-bottom: var(--spacing-4xl);
+}
+
+@media (min-width: 768px) {
+  .section-header {
+    margin-bottom: var(--spacing-5xl);
+  }
+} 

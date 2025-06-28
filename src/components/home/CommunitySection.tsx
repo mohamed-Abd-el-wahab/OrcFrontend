@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check, ArrowRight } from 'lucide-react';
+import { designClasses } from '../../config/design';
 
 const CommunitySection = () => {
   const benefits = [
@@ -10,7 +11,7 @@ const CommunitySection = () => {
   ];
 
   return (
-    <section className="relative bg-orc-black overflow-hidden py-16 md:py-20">
+    <section className={`${designClasses.section} bg-orc-black overflow-hidden ${designClasses.sectionPadding}`}>
       {/* Left Blue Spine */}
       <div className="absolute left-0 top-0 w-1 h-full bg-orc-blue z-10"></div>
       
@@ -28,12 +29,12 @@ const CommunitySection = () => {
         </svg>
       </div>
 
-      <div className="brand-container relative z-20 px-4 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center min-h-[60vh]">
+      <div className={`${designClasses.sectionContainer} relative z-20`}>
+        <div className={`${designClasses.grid} lg:grid-cols-2 items-center min-h-[60vh]`}>
           {/* Left Content */}
           <div className="space-y-8">
             {/* Headline */}
-            <h2 className="font-montserrat font-extrabold text-4xl lg:text-5xl leading-tight text-orc-white">
+            <h2 className={`${designClasses.sectionHeadline} leading-tight`}>
               Join the{' '}
               <span className="text-orc-blue">ORC Community</span>
             </h2>
@@ -62,12 +63,12 @@ const CommunitySection = () => {
 
             {/* Dual CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="btn-brand-primary inline-flex items-center justify-center px-8 py-4 bg-orc-blue text-orc-white font-medium rounded-xl hover:scale-105 hover:shadow-lg hover:shadow-orc-blue/25 transition-all duration-300 group">
+              <button className={designClasses.button}>
                 Explore Community
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
               
-              <button className="btn-brand-secondary inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-orc-blue text-orc-blue font-medium rounded-xl hover:bg-orc-blue hover:text-orc-white hover:scale-105 transition-all duration-300 group">
+              <button className={designClasses.buttonSecondary}>
                 Apply Now
                 <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </button>
