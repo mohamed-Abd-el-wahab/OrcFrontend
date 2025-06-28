@@ -1,0 +1,13 @@
+export { default as ProductDetailsHero } from './ProductDetailsHero';
+export { default as ProductOverview } from './ProductOverview';
+export { default as VariantSelector } from './VariantSelector';
+export { default as TechnicalSpecs } from './TechnicalSpecs';
+export { default as UseCases } from './UseCases';
+export { default as ProductGallery } from './ProductGallery';
+export { default as ExpansionCustomization } from './ExpansionCustomization';
+export { default as WhatsInTheBox } from './WhatsInTheBox';
+export { default as Resources } from './Resources';
+export { default as PurchaseSection } from './PurchaseSection';
+export { default as StickyBuyBar } from './StickyBuyBar';
+export { default as CompareModal } from './CompareModal';
+export { default as SupportCTA } from './SupportCTA'; 

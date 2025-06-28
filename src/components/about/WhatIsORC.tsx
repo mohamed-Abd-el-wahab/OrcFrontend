@@ -23,7 +23,7 @@ const WhatIsORC = () => {
       title: "Professional Hardware",
       subtitle: "ROVER & RIO",
       description: "Our flagship robotics kits—ROVER for rugged terrain, and RIO for labs and classrooms—are designed for exploration, prototyping, and pushing technical limits. Built by us, made for you.",
-      image: "/rover.png",
+      image: "/rover.jpg",
       link: "/products",
       features: [
         "Rugged terrain capability",
@@ -131,9 +131,9 @@ const WhatIsORC = () => {
                     <div key={featureIndex} className="flex items-center space-x-3">
                       <div className="w-2 h-2 bg-orc-blue rounded-full"></div>
                       <span className="font-aileron text-sm text-gray-400">{feature}</span>
-                    </div>
-                  ))}
                 </div>
+              ))}
+            </div>
 
                 <div className="pt-4">
                   <Link
@@ -144,8 +144,8 @@ const WhatIsORC = () => {
                     <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                   </Link>
                 </div>
-              </div>
-
+          </div>
+          
               {/* Image */}
               <div className={`relative group ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
                 <div className="relative rounded-2xl overflow-hidden">
@@ -159,7 +159,7 @@ const WhatIsORC = () => {
                       alt={service.title}
                       className="w-full h-full object-cover"
                       loading="lazy"
-                    />
+              />
                     
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                       <div className="text-left">
