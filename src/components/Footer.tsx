@@ -68,7 +68,7 @@ const Footer = () => {
               </h4>
               <div className="flex space-x-4">
                 <a 
-                  href="https://www.facebook.com/share/18kuQMcVnw/" 
+                  href="https://www.facebook.com/OpenRobotCommunity/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
@@ -86,7 +86,7 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a 
-                  href="https://www.linkedin.com/company/openrobotcombat" 
+                  href="https://www.linkedin.com/company/openrobotcommunity/" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="p-3 bg-gray-900/50 rounded-xl border border-orc-blue/30 text-gray-300 hover:text-orc-blue hover:border-orc-blue hover:scale-110 transition-all duration-300 group"
