@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Check, Clock, Gift, Shield, User, Mail, Phone, MapPin, CreditCard, AlertCircle, Send } from 'lucide-react';
 import SubscriptionSuccessPopup from './SubscriptionSuccessPopup';
 
@@ -15,7 +15,30 @@ interface SubscriptionPlan {
 }
 
 const SubscriptionForm = () => {
-  const [selectedPlan, setSelectedPlan] = useState<string>('annual');
+  // Get plan from URL parameter immediately
+  const getInitialPlan = () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const planParam = urlParams.get('plan');
+    
+    if (planParam) {
+      // Map plan names to IDs
+      const planMapping: Record<string, string> = {
+        'monthly': 'monthly',
+        'quarterly': 'quarterly', 
+        'annual': 'annual'
+      };
+      
+      const planId = planMapping[planParam.toLowerCase()];
+      if (planId) {
+        return planId;
+      }
+    }
+    
+    // Default to annual if no URL parameter
+    return 'annual';
+  };
+
+  const [selectedPlan, setSelectedPlan] = useState<string>(getInitialPlan());
   
   // Check if user came from promotional banner
   const isFromPromoBanner = new URLSearchParams(window.location.search).get('promo') === 'banner';
@@ -63,7 +86,8 @@ const SubscriptionForm = () => {
       originalPrice: '4,200 EGP',
       period: 'per 3 months',
       discount: isFromPromoBanner ? 'Save 7% + 6 FREE Months!' : 'Save 7%',
-      badge: isFromPromoBanner ? 'Promo Bonus' : 'Good Value',
+      badge: isFromPromoBanner ? 'Promo Bonus' : '⭐ Most Popular',
+      popular: true,
       features: [
         'All Monthly features',
         'Quarterly intensive workshops',
@@ -76,21 +100,24 @@ const SubscriptionForm = () => {
     },
     {
       id: 'annual',
-      name: isFromPromoBanner ? 'Annual + 6 FREE Months' : 'Annual + 3 FREE Months',
+      name: isFromPromoBanner ? 'Annual Membership + 6 FREE Months' : 'Annual Membership + 3 FREE Months',
       price: '12,000 EGP',
-              originalPrice: isFromPromoBanner ? '25,200 EGP' : '16,800 EGP',
-        period: 'per year',
-        discount: isFromPromoBanner ? 'Save 52% + 6 FREE Months!' : 'Save 43% + 3 FREE Months',
-      badge: 'Best Value',
-      popular: true,
+      originalPrice: isFromPromoBanner ? '25,200 EGP' : '16,800 EGP',
+      period: 'per year',
+      discount: isFromPromoBanner ? '🔥 Save 52% + 6 FREE Months!' : '🔥 Save 43% + 3 FREE Months!',
+      badge: 'Good Value',
+      popular: false,
       features: [
-        'All Quarterly features',
-        isFromPromoBanner ? '🎉 6 BONUS months absolutely FREE' : '🎁 3 BONUS months absolutely FREE',
-        'Annual bootcamp access',
-        'One-on-one mentorship sessions',
-        'Competition entry privileges',
-        'Lifetime alumni network access',
-        'Advanced certification program'
+        '✅ Everything in Quarterly plan',
+        isFromPromoBanner ? '🎉 6 BONUS months absolutely FREE!' : '🎁 3 BONUS months absolutely FREE!',
+        '🚀 Annual robotics bootcamp access',
+        '👨‍🏫 Personal mentorship sessions (1-on-1)',
+        '🏆 Priority competition entry & support',
+        '🌟 Lifetime alumni network access',
+        '📜 Advanced certification program',
+        '💎 VIP community status & perks',
+        '📚 Exclusive advanced project materials',
+        '🎯 Career guidance & job placement support'
       ]
     }
   ];

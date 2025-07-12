@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ArrowRight, Users, CreditCard, MessageCircle, Wrench, X, CheckCircle } from 'lucide-react';
 
 const HowItWorks = () => {
@@ -238,9 +239,12 @@ const HowItWorks = () => {
                     </div>
                     
                     {/* CTA Button */}
-                    <button className="w-full bg-orc-blue text-white px-6 py-3 rounded-xl font-montserrat font-semibold hover:bg-orc-blue/90 hover:scale-105 transition-all duration-300 shadow-lg">
+                    <Link 
+                      to={`/register?plan=${plan.name.toLowerCase()}`}
+                      className="w-full bg-orc-blue text-white px-6 py-3 rounded-xl font-montserrat font-semibold hover:bg-orc-blue/90 hover:scale-105 transition-all duration-300 shadow-lg inline-block text-center"
+                    >
                       Choose {plan.name}
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
