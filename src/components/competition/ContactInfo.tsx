@@ -23,7 +23,7 @@ const ContactInfo = () => {
           >
             <Phone className="w-8 h-8 text-blue-500 mb-3" />
             <span className="text-white font-medium">Call Us</span>
-            <span className="text-sm text-gray-400">+4915730223392</span>
+            <span className="text-sm text-gray-400">+20 103 192 8810</span>
           </a>
         </div>
       </div>

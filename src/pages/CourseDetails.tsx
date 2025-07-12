@@ -177,7 +177,7 @@ const CourseDetails = () => {
   const handleApply = () => {
     // Direct WhatsApp link with pre-filled message
     const message = `Hi, I'm interested in applying for the ${course?.title} course.`;
-    const whatsappUrl = `https://wa.me/+4915730223392?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+201031928810?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -193,7 +193,7 @@ const CourseDetails = () => {
   const handlePhoneRequest = () => {
     // Open WhatsApp with a different message for callback request
     const message = `Hi, I would like to request a phone call about the ${course?.title} course.`;
-    const whatsappUrl = `https://wa.me/+4915730223392?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/+201031928810?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -263,7 +263,7 @@ const CourseDetails = () => {
                     Apply Now
                   </button>
                   <a
-                    href={`https://wa.me/+4915730223392?text=${encodeURIComponent(`Hi, I'm interested in the ${course.title} course.`)}`}
+                    href={`https://wa.me/+201031928810?text=${encodeURIComponent(`Hi, I'm interested in the ${course.title} course.`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center px-8 py-4 bg-transparent border border-green-500/50 text-white rounded-lg hover:bg-green-500/10 transition-all duration-300 text-lg font-medium"

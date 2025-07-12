@@ -8,7 +8,7 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import Sponsorship from './pages/Sponsorship';
 import Watch from './pages/Watch';
-import Register from './components/Register';
+import Register from './pages/Register';
 import RegistrationSuccess from './components/RegistrationSuccess';
 import Products from './pages/Products';
 import ProductDetails from './pages/ProductDetails';
@@ -27,6 +27,8 @@ import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
 import BuilderChallenge from './pages/BuilderChallenge';
 import Community from './pages/Community';
+import TermsOfService from './pages/TermsOfService';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 
 function App() {
   return (
@@ -59,6 +61,8 @@ function App() {
             <Route path="/blog/:postId" element={<BlogPost />} />
             <Route path="/events" element={<Events />} />
             <Route path="/events/:eventId" element={<EventDetails />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
           </Routes>
           <Footer />
         </div>

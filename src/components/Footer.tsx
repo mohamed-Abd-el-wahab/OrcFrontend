@@ -16,7 +16,9 @@ const Footer = () => {
     { name: 'Blog', path: '/blog' },
     { name: 'Events', path: '/events' },
     { name: 'Register', path: '/register' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
+    { name: 'Terms of Service', path: '/terms' },
+    { name: 'Privacy Policy', path: '/privacy' }
   ];
 
   return (
@@ -176,10 +178,10 @@ const Footer = () => {
                 <div>
                   <p className="text-gray-300 font-montserrat font-medium">Phone</p>
                   <a 
-                    href="tel:+4915730223392" 
+                    href="tel:+201031928810" 
                     className="text-gray-300 hover:text-orc-blue transition-colors duration-300 font-aileron font-light"
                   >
-                    +49 157 3022 3392
+                    +20 103 192 8810
                   </a>
                 </div>
               </div>

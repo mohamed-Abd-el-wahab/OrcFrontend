@@ -841,7 +841,7 @@ const BuilderChallenge = () => {
                     challenge@openrobotcombat.com
                   </a>
                 </li>
-                <li>Phone: +4915730223392</li>
+                <li>Phone: +20 103 192 8810</li>
               </ul>
             </div>
 

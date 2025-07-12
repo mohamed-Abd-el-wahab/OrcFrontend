@@ -89,7 +89,7 @@ const Contact = () => {
                   <Phone className="w-6 h-6 text-blue-500 mt-1 mr-4" />
                   <div>
                     <h3 className="text-lg font-semibold text-white">Phone</h3>
-                    <p className="text-gray-300">+4915730223392</p>
+                    <p className="text-gray-300">+20 103 192 8810</p>
                     <p className="text-sm text-gray-400">Monday to Friday, 9am - 6pm CET</p>
                   </div>
                 </div>
