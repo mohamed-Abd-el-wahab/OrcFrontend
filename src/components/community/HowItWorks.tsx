@@ -75,8 +75,8 @@ const HowItWorks = () => {
       name: "Annual",
       price: "12,000 EGP",
       period: "year",
-      originalPrice: "14,400 EGP",
-      savings: "Save ~17% (3 months free)",
+              originalPrice: "16,800 EGP",
+        savings: "Save ~43% (3 months free)",
       features: [
         "Full access to all workshops",
         "Discord community access",

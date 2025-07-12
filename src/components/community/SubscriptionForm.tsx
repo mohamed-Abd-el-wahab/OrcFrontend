@@ -78,9 +78,9 @@ const SubscriptionForm = () => {
       id: 'annual',
       name: isFromPromoBanner ? 'Annual + 6 FREE Months' : 'Annual + 3 FREE Months',
       price: '12,000 EGP',
-      originalPrice: isFromPromoBanner ? '16,800 EGP' : '14,400 EGP',
-      period: 'per year',
-      discount: isFromPromoBanner ? 'Save 29% + 6 FREE Months!' : 'Save 17% + 3 FREE Months',
+              originalPrice: isFromPromoBanner ? '25,200 EGP' : '16,800 EGP',
+        period: 'per year',
+        discount: isFromPromoBanner ? 'Save 52% + 6 FREE Months!' : 'Save 43% + 3 FREE Months',
       badge: 'Best Value',
       popular: true,
       features: [

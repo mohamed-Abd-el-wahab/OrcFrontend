@@ -101,7 +101,7 @@ const TermsOfService = () => {
                 <ul className="list-disc pl-6 space-y-2">
                   <li>Monthly Membership: 1,400 EGP per month</li>
                   <li>Quarterly Membership: 3,900 EGP per quarter (Save ~7%)</li>
-                  <li>Annual Membership: 12,000 EGP per year (Save ~17% + 3 FREE months)</li>
+                  <li>Annual Membership: 12,000 EGP per year (Save ~43% + 3 FREE months)</li>
                 </ul>
                 
                 <h3 className="font-montserrat font-semibold text-lg text-orc-blue">Membership Process</h3>
