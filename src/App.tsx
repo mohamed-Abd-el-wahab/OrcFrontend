@@ -25,7 +25,7 @@ import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Events from './pages/Events';
 import EventDetails from './pages/EventDetails';
-import BuilderChallenge from './pages/BuilderChallenge';
+// import BuilderChallenge from './pages/BuilderChallenge';
 import Community from './pages/Community';
 import TermsOfService from './pages/TermsOfService';
 import PrivacyPolicy from './pages/PrivacyPolicy';
@@ -40,7 +40,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/competition" element={<Competition />} />
-            <Route path="/builder-challenge" element={<BuilderChallenge />} />
+            {/* <Route path="/builder-challenge" element={<BuilderChallenge />} /> */}
             <Route path="/community" element={<Community />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />

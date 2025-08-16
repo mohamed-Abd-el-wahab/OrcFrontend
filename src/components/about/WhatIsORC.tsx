@@ -38,7 +38,7 @@ const WhatIsORC = () => {
       subtitle: "Build. Battle. Win.",
       description: "From rapid prototyping contests to full-blown combat robot battles, our competitions inspire creativity, pressure-test skills, and unite the community under one arena.",
       image: "/community.png",
-      link: "/builder-challenge",
+              // link: "/builder-challenge",
       features: [
         "Rapid prototyping contests",
         "Combat robot battles",

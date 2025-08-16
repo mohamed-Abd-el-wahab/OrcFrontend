@@ -69,7 +69,7 @@ const AboutCTA = () => {
             </Link>
 
             <Link
-              to="/builder-challenge"
+              to="#"
               className="group inline-flex items-center justify-center px-12 py-6 bg-transparent border-2 border-orc-blue text-orc-blue font-medium rounded-xl hover:bg-orc-blue hover:text-orc-white hover:scale-105 transition-all duration-300 text-lg font-montserrat min-w-[240px]"
             >
               <Zap className="w-6 h-6 mr-3" />

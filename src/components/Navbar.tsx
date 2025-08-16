@@ -123,13 +123,13 @@ const Navbar = () => {
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-bright-cyan group-hover:w-full transition-all duration-300"></div>
             </Link> */}
 
-            <Link 
+            {/* <Link 
               to="/builder-challenge" 
               className="text-gray-300 hover:text-orc-blue transition-all duration-300 text-sm tracking-wider font-medium font-aileron relative group"
             >
               Builder Challenge
               <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-orc-blue group-hover:w-full transition-all duration-300"></div>
-            </Link>
+            </Link> */}
 
             <Link 
               to="/community" 
@@ -298,12 +298,12 @@ const Navbar = () => {
               Competition
             </Link> */}
 
-            <Link
+            {/* <Link
               to="/builder-challenge"
               className="block px-4 py-3 text-gray-300 hover:text-orc-blue hover:bg-orc-blue/5 rounded-xl transition-all duration-300 text-sm font-medium font-aileron"
             >
               Builder Challenge
-            </Link>
+            </Link> */}
 
             <Link
               to="/community"
